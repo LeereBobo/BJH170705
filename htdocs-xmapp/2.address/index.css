@@ -1,0 +1,13 @@
+.wrap_style{font-size: 18px;}
+.ul_style{width: 360px; margin: auto; border: 2px solid black;}
+.lis_style{width: 320px; border-bottom: 2px dashed lightgray; margin: 23px 0; list-style: none;}
+.lettr_style{margin-bottom: 8px;}
+.name_tel_style{margin: 3px 0;}
+.name_style{width: 80px; margin-right: 5px;}
+/*.tel_style{margin-left: 30p\nx;}*/
+.display_none {display: none;}
+.display_block{display: block;}
+.float_left{float: left;}
+.float_right{float: right;}
+.float_clear{overflow: hidden;}
+.fonts{font-size: 16px;}

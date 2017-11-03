@@ -1,0 +1,34 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+#wrap {
+	padding-bottom: 100px;
+	background-color: #1a1b1f;
+}
+
+
+/*头部导航栏*/
+
+header {
+	width: 100%;
+	height: 80px;
+	background: url(../img/navbg.png) center top no-repeat;
+	color: #827c79;
+	font: 16px/16px 'Microsoft YaHei';
+}
+
+/*头部内容背景区*/
+article	{
+	height: 890px;
+	background: url(../img/fenyebg.jpg);
+}
+article a {
+	display: block;
+    width: 1200px;
+    height: 380px;
+    margin: 0 auto;
+    color: #666;
+}
+

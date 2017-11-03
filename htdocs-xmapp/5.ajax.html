@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script src="jquery.js.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		
+		$.ajax({
+		type:"get",
+		url:"21313",
+		data:"name=张三",
+		success:function(v){
+			//请求成功并返回值
+			console.log(v)
+		},
+		error:function(a){//a：错误信息
+			//请求错误
+			console.log(a)
+		},
+		complete:function(){
+			//请求结束后调用这个函数，说明网路请求结束了
+		}
+		
+	});
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

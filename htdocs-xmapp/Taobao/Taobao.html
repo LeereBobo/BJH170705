@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.myWrap {
+				width: 545px;
+				height: 425px;
+				border: 2px solid black;
+				margin: 0 auto;
+				
+			}
+			
+			.small {
+				width: 220px;
+				height: 370px;
+				margin: 25px;
+				border: 1px solid #ededed;
+				float: left;
+				
+			}
+			
+			.myImg {
+				width: 220px;
+			}
+			
+			.numDiv {
+				margin-top: 11px;
+				height: 22px;
+				line-height: 22px;
+				overflow: hidden;
+				padding: 0 10px;
+			}
+			
+			.myPrice {
+				font-family: arial;
+				letter-spacing: 0.8px;
+				color: #F40;
+				font-weight: 700;
+				font-size: 18px;
+			}
+			
+			.myPeoples {
+				display: inline-block;
+				color: #888; 
+				line-height: 22px;
+				color: #404040;
+				font-size: 14px; 
+				padding-left: 60px;
+			}
+			.text {
+				color: #404040;
+			}
+			.text a {
+				display: inline-block;
+				font-size: 14px;
+				padding-top: 15px;
+				color: black;
+			}
+			.shop {
+				color: #404040;
+				font-size: 14px;				
+			}
+			.shop span:nth-child(1){
+				background: url(imgs/11.png) no-repeat 5px;
+				padding-left: 15px;
+			}
+			.shop span:nth-child(2){
+				display: inline-block;
+				padding-top: 15px;
+				padding-left: 60px;
+			}
+			.myUl {
+				width:190px ;
+				overflow: hidden;
+				margin: auto;
+			}
+			.myLi {
+				list-style: none;
+				float: left;
+				border: 1px solid black;
+				padding: 5px 8px;
+				margin: 10px;
+			}
+			
+			
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap" class="myWrap"></div>
+	</body>
+
+	<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		$.ajax({
+			type: "GET",
+			url: "Taobao.php",
+			success: function(value) {
+				var arr = jQuery.parseJSON(value);
+				
+				createPage(arr,2);
+			}
+		});
+		
+	
+		//创建分页
+		function createPage(myArr,perNum){
+			var num = Math.ceil(myArr.length / perNum);
+			var ul = $("<ul class=myUl>");
+			ul.appendTo(document.body);
+			
+			for (var i = 0; i < num; i++) {
+				var li = $("<li class=myLi>");
+				li.appendTo(ul);
+				li.text(i + 1);
+				li.attr("index",i);
+				li.click(function(){
+					var myIndex = Number($(this).attr("index"));
+					console.log($(this).attr("index"));
+					createNewArr(myArr,perNum,myIndex);
+				})
+			}
+		}
+		
+		//截取新数组
+		function createNewArr(myArr,perNum,myIndex){
+			var myNewArr = [];
+			var end = (myIndex + 1) * perNum;
+			if (end > myArr.length) {
+				end = myArr.length;
+			}
+			myNewArr = myArr.slice(perNum * myIndex, end);
+			
+			create(myNewArr);
+			
+		}
+		
+		
+		//根据新数组创建页面
+		function create(obj) {
+			$("#wrap").html("");
+			$(obj).each(function(i) {
+				
+				var data = obj[i];
+				
+				var fath = $("<div class=small>");
+				fath.appendTo($("#wrap"));
+				
+				var myImgs = $("<img class=myImg>");
+				myImgs.appendTo(fath);
+				myImgs.attr("src",data.img);
+				
+				var numDiv = $("<div class=numDiv>")
+				numDiv.appendTo(fath);
+				
+				var price = $("<span class=myPrice>")
+				price.appendTo(numDiv);
+				price.text(data.price);
+				
+				var peoples = $("<span class=myPeoples>")
+				peoples.appendTo(numDiv);
+				peoples.text(data.num);
+				
+				var textDiv = $("<div class=text>")
+				textDiv.appendTo(fath);
+				
+				var a = $("<a href='#'>")
+				a.appendTo(textDiv);
+				a.text(data.text);
+				
+				var shop = $("<div class=shop>")
+				shop.appendTo(fath);
+				
+				var shopSpan = $("<span>")
+				shopSpan.appendTo(shop);
+				shopSpan.text(data.shop);
+				
+				var adSpan = $("<span>")
+				adSpan.appendTo(shop);
+				adSpan.text(data.address);
+				
+			})
+		}
+	</script>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //通过ajax获得php中的json数据
+    //1.创建ajax
+    var m = new XMLHttpRequest();
+
+    //2.配置请求路径和请求方式(get和post)
+    m.open("get","./1.first.php");
+
+    //3.发送请求
+    m.send();
+
+    //4.接收数据
+    m.onreadystatechange = function(){
+        
+        //网络请求成功并返回数据
+        if(this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+        }
+    }
+</script>
+</body>
+</html>

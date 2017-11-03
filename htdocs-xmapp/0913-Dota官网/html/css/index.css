@@ -1,0 +1,1024 @@
+html,body {
+	width: 100%;
+}
+#wrap{
+	width:100%; 
+	min-height: 100%; 
+	background: url(../img/bigbg.jpg) no-repeat center -132px;
+	}
+	
+#header_bg {
+	width: 100%;
+	height: 80px;
+	background: url(../img/navbg.png);
+}
+
+#header_content {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+	
+}
+
+#logo {
+	width: 260px;
+	height: 80px;
+	margin-right: 20px;
+	
+}
+
+#logo a {
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+/*导航栏**********************************/	
+
+#header_nav {
+	width: 644px;
+	height: 100%;
+	text-align: center;
+	padding-top: 20px;
+}
+/*#header_nav::after {
+	content: "";
+	display: table;
+	clear: both;
+}*/
+
+#header_nav li {
+	list-style: none;
+	float: left;
+	width: 92px;
+	position: relative;
+}
+
+#header_nav li a {
+	text-decoration: none;
+}
+
+#header_nav li a div{
+	color: #827c79;
+}
+
+.eng {
+	font-size: 9px;
+}
+
+.nav_inul {
+	
+	width: 92px;
+	height: 239px;
+	position: absolute;
+	top: 70px;
+	left: 0;
+	font-size: 15px;
+	text-align: center;
+	line-height: 30px;
+	background: url(../img/libg.png);
+	z-index: 100;
+	display: none;
+}
+.nav_inul li a {
+	color: #827C79;
+}
+.hovers:hover .nav_inul{
+	display:  block;
+}
+
+/*.hovers:hover~.nav_inul{
+	display: block;
+}
+.hovers:hover>div{
+	color: #00B7F4;
+}*/
+
+/*登录样式*/
+#login {
+	width: 234px;
+	height: 80px;
+	margin-left: 35px;
+}
+
+#icon {
+	width: 52px;
+	height: 52px;
+	background: url(../img/sprite.png) no-repeat 13px -450px;
+	margin-top: 15px;
+	
+}
+
+#login_right {
+	width: 169px;
+	height: 42px;
+	padding-top: 20px;
+}
+#login_right_top {
+	color: white;
+	font-size: 18px;
+}
+#login_right_top a {
+	color: #00b7f4;
+	text-decoration: none;
+}
+
+#login_right_bottom {
+	color: #898989;
+	font-size: 12px;
+}
+
+/*中部内容区*********************************/
+#center_content {
+	width: 1100px;
+	/*height: 5327px;*/
+	margin: auto;
+}
+#first {
+	position: relative;
+	height: 160px;
+}
+
+#firstPage {
+	width: 200px;
+	position: absolute;
+	top: 126px;
+	left: 32px;
+	color: #FFFFFF;
+	font-size: 14px;	
+}
+#firstPage a{
+	color: #b54029;
+}
+
+/*导航栏*****************************/
+#center_content_nav {
+	width: 100%;
+	height: 100px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	
+}
+#center_content_nav li:nth-child(1){
+	width: 114px;
+}
+#center_content_nav li {
+	width: 123px;
+	height: 100%;
+	float: left;
+	list-style: none;
+	background: url(../img/nav2.png) no-repeat;
+	transition: all,0.2s;
+}
+#center_content_nav li:nth-child(1){
+	 background-position:0 0;
+}
+#center_content_nav li:nth-child(2){
+	background-position:-114px 0;
+}
+#center_content_nav li:nth-child(3){
+	background-position:-237px 0;
+}
+#center_content_nav li:nth-child(4){
+	background-position:-360px 0;
+}
+#center_content_nav li:nth-child(5){
+	background-position:-483px 0;
+}
+#center_content_nav li:nth-child(6){
+	background-position:-606px 0;
+}
+#center_content_nav li:nth-child(7){
+	background-position:-729px 0;
+}
+#center_content_nav li:nth-child(8){
+	background-position:-852px 0;
+}
+#center_content_nav li:nth-child(9){
+	background-position:-975px 0;
+}
+#center_content_nav li:hover{
+	background-position-y: -100px;
+}
+
+/*轮播图section*********************************/
+#luobo_section {
+	width: 100%;
+}
+/*轮播图********************************/
+
+#lunbo {
+	width: 678px;
+	height: 384px;
+	border: 11px solid rgba(0,0,0,0.2);
+	position: relative;
+	overflow: hidden;
+}
+
+#lunbo_pic {
+	width: 540px;
+	height: 3000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+}
+.lunbo_imgs {
+	margin-bottom: 6px;
+}
+#lunbo_text {
+	width: 137px;
+	height: 500px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 14px;
+}
+.text_wrap {
+	height: 75px;
+	margin-bottom: 2px;
+	background-color: #586e7a;
+}
+.text_wrap a{
+	display: block;
+	padding-left: 12px;
+}
+.text_a1 {
+	color: #ffffff;
+	padding-top: 20px;
+}
+.text_a2 {
+	color: #a6a6a6;
+}
+
+
+
+/*视频排行榜***************************/
+#list {
+	width: 386px;
+	height: 406px;
+}
+#listHeader {
+	height: 40px;
+}
+#listHeader_left{
+	color: #dadad9;
+	font-size: 18px;
+	padding-left: 60px;
+	background: url(../img/book.png) no-repeat;
+	 
+}
+#listHeader_right span{
+	display: inline-block;
+	border: 1px solid #5f6b6d;
+	width: 42px;
+	text-align: center;
+	line-height: 22px;
+	color: #ffffff;
+	cursor: pointer;
+	margin: 0 0 0 5px;
+	font-size: 14px;
+	/*background-color: #5f6b6d;*/
+}
+#listContent{
+	width: 386px;
+	height: 366px;
+}
+.listPage-style {
+	width: 100%;
+	
+}
+.listNum {
+	height: 36px;
+	background-color: #333942;
+	border-bottom: 1px dotted #4e5858;
+	vertical-align: middle;
+	padding: 5px 4px 4px 0;
+	/*height: 42px;*/
+}
+/*.list_num_top {
+	
+}*/
+.numth {
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	color: #d5d5d5;
+	text-align: center;
+	line-height: 17px;
+	padding-right: 4px;
+	font-family: simsun;
+	font-size: 12px;
+	margin-left: 5px;
+	background: url(../img/num.png) no-repeat 0 0;
+}
+.listText {
+	color: #d5d5d5;
+	cursor: pointer;
+	padding-left: 10px;
+	font-size: 15px;
+}
+.listBottom {
+	color: #8e8e8e;
+	font-weight: bold;
+	padding-left: 30px;
+	font-size: 15px;
+	display: none;
+}
+.listBottom div:nth-child(1){
+	display: block;
+}
+
+/*最新视频********************/
+#new_video{
+	width: 100%;
+	height: 486px;
+	margin: 25px 0;
+}
+#video_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#v_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/new.png) no-repeat;
+}
+#v_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#v_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+/*视频内容*/
+#videos {
+	width: 100%;
+	height: 436px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+#hot{
+	height: 59px;
+	background-color: #63757f;
+}
+.title_div {
+	color: #d5d5d5;
+	height: 59px;
+	line-height: 59px;
+	font-size: 16px;
+	padding: 0 35px;
+	cursor: pointer;
+	
+}
+/*.title_div:nth-child(2){
+	background: url(../img/hot.png) no-repeat 120px 10px;
+}
+.title_div:nth-child(3){
+	background: url(../img/hot.png) no-repeat 100px 10px;
+}*/
+.test {
+	background: url(../img/red.png) no-repeat 30px 45px;
+	background-color: #344446;
+}
+
+/*视频内容*/
+#video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+
+.video_wrap {
+	width: 160px;
+	height: 180px;
+	font-size: 12px;
+	margin-right: 23px;
+}
+.img_div{
+	width: 160px;
+	position: relative;
+}
+.imgs {
+	width: 160px;
+	height: 100px;
+	margin-bottom: 5px;
+}
+.sp {
+	width: 45px;
+	height: 21px;
+	line-height: 21px;
+	text-align: center;
+	position: absolute;
+	top: 79px;
+	right: 0;
+	background-color: rgba(0,0,0,0.75);
+	font-size: 12px;
+	color: #d5d5d5;
+
+}
+
+.masks {
+	width: 160px;
+	height: 100px;
+	position: absolute;
+	border: 2px solid darkorange;
+	top: 0;
+	left: 0;
+	transition: all 200ms ease-out;
+	display: none;
+}
+.img_div:hover .masks {
+	display: block;
+}
+.img_div:hover .video_text{
+	color: darkorange;
+}
+
+.video_text{
+	color: #d5d5d5;
+	cursor: pointer;
+	font-size: 12px;
+}
+.video_date{
+	color: #6b6b6b;
+	cursor: pointer;
+	font-size: 11px;
+
+}
+
+/*官方视频********/
+#office_video {
+	width: 100%;
+	height: 427px;
+	margin: 25px 0;
+}
+#office_videos{
+	background-color: #344446;
+    border: 1px solid #2c3a38;
+}
+#o_video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+
+#office_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#o_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/5.png) no-repeat;
+}
+#o_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#o_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+
+
+
+/*内容区2*******************************************/
+#wrap2{
+	width:100%; 
+	padding-bottom: 5px;
+	background: url(../img/lbg.jpg) repeat;
+	}
+#content2{
+	width: 1100px;
+	margin: 0 auto;
+}	
+#m-videos{
+	width: 100%;
+	height: 436px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+/*比赛视频*/
+#match_video{
+	width: 100%;
+	height: 486px;
+	margin: 25px 0;
+}
+#match_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#m_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/11.png) no-repeat;
+}
+#m_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#m_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+#m_videos {
+	width: 100%;
+	height: 436px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+#m_hot{
+	height: 59px;
+	background-color: #63757f;
+}
+
+#m_video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+#m_video_all .video_wrap:nth-child(1){
+	width: 160px;
+	height: 335px;
+	background-color: #ae3e00;
+	color: #d5d5d5;
+	padding: 5px;
+	font-size: ;
+	cursor: pointer;
+}
+#m_video_all .video_wrap:nth-child(1) img{
+	width: 140px;
+}
+#video_text{
+	width: 136.5px;
+	height: 160px;
+	font-size: 13px;
+}
+
+
+/*新手入门*************/
+#new_born_video{
+	width: 100%;
+	height: 306px;
+	margin: 25px 0;
+}
+
+#new_born_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#nb_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/7.png) no-repeat;
+}
+#nb_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#nb_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+
+#nb-videos {
+	width: 100%;
+	height: 256px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+#nb-hot{
+	height: 59px;
+	background-color: #63757f;
+}
+
+#nb-video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+
+/*进阶教学********/
+#progress_video{
+	width: 100%;
+	height: 306px;
+	margin: 25px 0;
+}
+
+#progress_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#p_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/j-.png) no-repeat;
+}
+#p_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#p_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+
+#p-videos {
+	width: 100%;
+	height: 256px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+#p-hot{
+	height: 59px;
+	background-color: #63757f;
+}
+
+
+#p-video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+
+/*战队视频********/
+#team_video{
+	width: 100%;
+	height: 486px;
+	margin: 25px 0;
+}
+
+#team_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#t_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/t.png) no-repeat;
+}
+#t_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#t_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+
+#t_videos {
+	width: 100%;
+	height: 436px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+#t_hot{
+	height: 59px;
+	background-color: #63757f;
+}
+
+
+#t_video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+
+/*明星视频*******/
+#star_video{
+	width: 100%;
+	height: 486px;
+	margin: 25px 0;
+}
+
+#star_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#s_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/s.png) no-repeat;
+}
+#s_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#s_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+
+#s_videos {
+	width: 100%;
+	height: 436px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+#s_hot{
+	height: 59px;
+	background-color: #63757f;
+}
+
+
+#s_video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+
+/*英雄视频*********/
+#hero_video{
+	width: 100%;
+	/*height: 486px;*/
+	margin: 25px 0;
+}
+
+#hero_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#h_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/h.png) no-repeat;
+}
+#h_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#h_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+
+#h_videos {
+	width: 100%;
+	height: 881px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+
+/*解说视频*************/
+#explain_video{
+	width: 100%;
+	height: 306px;
+	margin: 25px 0;
+}
+
+#explain_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#e_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/e.png) no-repeat;
+}
+#e_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#e_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+
+#e_videos {
+	width: 100%;
+	height: 256px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+#e_hot{
+	height: 59px;
+	background-color: #63757f;
+}
+
+
+#e_video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+
+/*特别栏目*******/
+#final_video{
+	width: 100%;
+	height: 306px;
+	margin: 25px 0;
+}
+
+#final_title {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#f_title_left {
+	width: 123px;
+	height: 40px;
+	color: #d5d5d5;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #000;
+	padding-left: 25px;
+	text-align: center;
+	line-height: 40px;
+	background: url(../img/f.png) no-repeat;
+}
+#f_more {
+	width: 100px;
+	height: 40px;
+	padding-left: 17px;
+	line-height: 40px;
+	text-align: center;
+	background: url(../img/plus.png) no-repeat 0 14px;
+	
+}
+#f_more a{
+	text-decoration: none;
+	color: #d5d5d5;
+}
+
+#f_videos {
+	width: 100%;
+	height: 256px;
+	border: 1px solid #2c3a38;
+	background-color: #344446;
+}
+#f_hot{
+	height: 59px;
+	background-color: #63757f;
+}
+
+
+#f_video_all {
+	width: 100%;
+	padding-top: 18px;
+	padding-left: 12px;
+	text-align: center;
+}
+
+
+
+
+
+
+/*尾部*****************************************8*/
+#footer_bg{
+	width: 100%;
+	height: 160px;
+	font-family: "Microsoft YaHei", 微软雅黑, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	background-color: rgb(0,0,0);
+	font-size: 12px;
+	color: rgb(149,149,149);
+	/*z-index: 1;*/
+}
+
+#footer_top{
+	width: 976.22px;
+	text-align: center;
+	line-height: 1.5;
+	overflow: hidden;
+	margin: 0 auto;
+	padding-top: 40px;
+	padding-bottom: 10px;
+	
+}
+#footer_top a {
+	display: inline-block;
+	padding: 0 20px;
+	float: left;
+}
+#wanmei {
+	float: left;
+	text-align: left;
+}
+#footer_bottom {
+	width: 976.22px;
+	line-height: 1.5;
+	font-size: 12px;
+	color: #333;
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+
