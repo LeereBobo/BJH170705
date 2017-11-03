@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var str = "zhangsan|18|男|100293848847";
+    
+    var s1 = '{\
+        "age":18,\
+        "sex":"男",\
+        "id":"100293848847",\
+        "婚否":true,\
+        "记录":null,\
+    }';
+    console.log(s1);
+    //"key":value   
+    //json:
+    //[] ---- 数组
+    //{} ---- 一条数据
+    //数据格式：字符串，bool，number，null
+    
+    /*var s2 = '{"name":"李晓芮","tel":"18293433887","photo":"img/32.jpg"}';
+    console.log(s2);*/
+
+    /*var s3 = '[{"name":"李晓芮","tel":"18293433887","photo":"img/32.jpg"},{"name":"李晓芮","tel":"18293433887","photo":"img/32.jpg"}]'
+    console.log(s3);*/
+    
+    //学校有3个班，每班3人，每个人属性：姓名，年龄，性别
+    /*var s4 = '[{{"name":"李二"，"age":18,"sex":"女"},{"name":"李三"，"age":18,"sex":"女"},{"name":"李四"，"age":18,"sex":"女"}},' +
+        '{{"name":"王二"，"age":18,"sex":"女"},{"name":"王三"，"age":18,"sex":"女"},{"name":"王四"，"age":18,"sex":"女"}},' +
+        '{{"name":"张二"，"age":18,"sex":"女"},{"name":"张三"，"age":18,"sex":"女"},{"name":"张四"，"age":18,"sex":"女"}}]';
+    
+    console.log(s4);*/
+    
+    
+    var s4 = '[{"class":"研发一","student":[{"name":"张三"},{"name":"李四"},{"name":"王五"}]},{"class":"研发二","student":[{"name":"放假"},{"name":"分隔"},{"name":"发过"}]},{"class":"研发三","student":[{"name":"水电"},{"name":"史蒂"},{"name":"二恶"}]}]';
+    
+    console.log(s4);
+
+        
+    /*var arr = str.split("|");
+    console.log(arr);
+    console.log("name:" + arr[0]);
+    console.log("age:" + arr[1]);
+    console.log("sex:" + arr[2]);
+    console.log("id:" + arr[3]);*/
+    
+    
+
+
+</script>
+
+
+</body>
+</html>

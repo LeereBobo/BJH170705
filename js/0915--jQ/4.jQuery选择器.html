@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		#div1 {
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+
+	<body>
+		<!--<h1>uieruiu</h1>-->
+		<div id="div1" class="a">
+			<!--<input id="one" checked type="text" />
+			<input id="two" type="text" />-->
+			<div id="div2">
+				<!--<input id="three" type="text" />
+				<h3>ihfhgkg</h>
+				<input type="checkbox" id="four" checked="checked" name="" id="" value="" />
+				<input type="checkbox" id="five" name="" id="" value="" />-->
+			</div>
+		</div>
+		<!--<p>
+			<pan></pan>
+		</p>
+		<span>
+			<p></p>
+		</span>
+
+		<table>
+			<tr>
+				<td>Header 1</td>
+			</tr>
+			<tr>
+				<td>Value 1</td>
+			</tr>
+			<tr>
+				<td>Value 2</td>
+			</tr>
+		</table>-->
+
+	</body>
+
+	<script src="jquery.js.js"></script>
+	<script type="text/javascript">
+		//1.id选择器
+		var m = $("#div1");
+//		console.log(m);
+		var n = $("div");
+//		console.log(n);
+		var m1 = $(".a");
+//		console.log(m1);
+//		console.log($("div,span,p"));
+//		console.log($("#div1 input"));
+//		console.log($("#div1>input"));
+//		console.log($("#div1+span")); //必须紧邻
+//		console.log($("#div1~span")); //同辈中所有
+//		console.log($("input:first")); //同一父级且多个子元素
+//		console.log($("input:not(:checked)"));
+//		console.log($("input:even")); //even:匹配所有索引值为偶数的元素，从 0 开始计数
+//		console.log($("tr:even"));
+//		console.log($("input:odd")); //奇数
+//		console.log($("input:eq(3)")); //匹配一个给定索引值的元素,从 0 开始计数
+//		console.log($("input:gt(1)"));
+//		console.log($("p:lang(it)")); ????
+//		console.log($("input:last"));//最后一个
+//		console.log($("input:lt(2)"));//匹配所有小于给定索引值的元素
+
+//		$(":header").css("background-color","red");//匹配如 h1, h2, h3之类的标题元素
+		
+		$("#div1").click(function(){
+			
+			$("div:not(:animated)").animate({left:"+=2000"},1000);
+			//:animated匹配所有正在执行动画效果的元素
+		})
+
+		
+	</script>
+
+</html>

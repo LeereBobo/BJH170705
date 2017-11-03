@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="text"/>
+		<script type="text/javascript">
+			var oText = document.getElementById("text");
+			oText.oninput = function(){
+				
+				var re = /\d/ig;
+				//this.value = this.value.replace(re,"");
+				if (re.test(this.value)) {
+					//创建
+					console.log(123);
+				}
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// \d:[0-9]
+			// \D:非数字 \W  \S
+			// \w:[0-9a-zA-Z_] 数字字母下划线
+			// \s:空格或者Tab
+			// \u:中文 [\u4e00-\u9fa5]
+			
+//			var re = /\D/ig;
+//			var str = "yy8y8we88";
+//			var n = str.replace(re,"");
+//			console.log(n);
+			
+			var reg = /[^\u4e00-\u9fa5]/g;
+			var str = "你好2gdf";
+			var n = str.replace(reg,"");
+			console.log(n);
+			//[^]:对^后面内容整体取反
+		</script>
+	</body>
+</html>

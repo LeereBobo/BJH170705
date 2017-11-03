@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    //网络请求中，数据一般都是字符串格式
+    var str = "hello";
+    var arr = ["hello"];
+
+    //将数组转化为字符串
+    //var str = arr.join("")；
+    //console.log(str);
+
+
+    //定义一个数组
+    /*var arr = ["num1","num2","num3"];
+    var str = JSON.stringify(arr); //-->将数据转化为json字符串
+    console.log(str);
+    console.log(arr);*/
+    
+    //定义一个数据对象，转化为json
+    var obj = {
+        name:"张二",
+        age:18
+    }
+    console.log(obj.name);
+    var str1 = JSON.stringify(obj);
+    console.log(str1);
+    console.log(obj);
+
+    
+    //通过对象创建多个人，并添加到数组中，将数组转化为json
+    var obj1 = [{name:"呱呱",age:18,"letter":"G"},{name:"李二", age:19,"letter":"L"},{name:"臭猪",age:18,"letter":"C"},{name:"记得",age:18,"letter":"J"},{name:"忘了",age:18,"letter":"W"}];
+    /*var str2 = JSON.stringify(obj1);
+    console.log(str2);*/
+
+    //
+    for(var j = 0; j < obj1.length - 1; j++){
+        for(var h = 0; h < obj1.length - 1 - j; h++){
+            if(obj1[h].letter > obj1[h+1].letter){
+                var temp = obj1[h];
+                obj1[h] = obj1[h+1];
+                obj1[h+1] = temp;
+            }
+        }
+    }
+    console.log(obj1);
+
+    function sort(myarr){
+        for(j = 0; j < myarr.length - 1; j++) {
+            for(var i = 0; i < myarr.length - 1 - j; i++) {
+                if(myarr[i].letter > myarr[i + 1].letter) {
+                    var temp = myarr[i];
+                    myarr[i] = myarr[i + 1];
+                    myarr[i + 1] = temp;
+                }
+            }
+        }
+        console.log(myarr);
+    }
+    
+    sort(obj1);
+
+
+
+</script>
+</body>
+</html>

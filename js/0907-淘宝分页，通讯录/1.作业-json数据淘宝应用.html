@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .first {
+            display: inline-block;
+        }
+
+        /*.one {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }*/
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+
+    <!--content:用于存储单个小页面-->
+    <div id="content">
+        <div class="first">
+
+
+        </div>
+    </div>
+
+
+    <!--page:分页按钮-->
+    <div id="page"></div>
+
+</div>
+
+<script>
+
+
+    //1.获得数据
+    var str = '[{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"}]';
+
+    //2.解析为数组
+    var arr = JSON.parse(str);
+
+    //3.做分页处理
+    function fenye(allNum,perNum,myArr){
+        //1.得到有多少页
+        var page = Math.ceil(allNum / perNum);
+
+        //2.创建界面
+        var myPage = document.getElementById("page");
+
+        //获得content
+        var content = document.querySelector("#content");
+
+
+        for (var i = 0; i < page; i++) {
+//            var btn = creat(btn,myPage);
+
+            var btn = document.createElement("div");
+            btn.className = "";
+
+            myPage.appendChild(btn);
+            btn.innerHTML = i + 1;
+            btn.onclick = function(){
+
+                //点击添加对应按钮的数据到界面上
+
+                var cNum = Number(btn.innerHTML);//?
+                var start = (cNum - 1) * perNum;
+                var end = cNum *perNum;
+
+                if(end > myArr.length){
+                    end = myArr.length;
+                }
+
+                for(var i = start; i < end; i++){
+                    //创建页面
+                    var f = document.createElement("div");
+                    content.appendChild(f);
+
+                    //创建小标签
+                    var obj = myArr[i];
+                    console.log(obj);
+                    var myImg = document.createElement("img");
+                    myImg.src = obj.img;
+                    f.appendChild(myImg);
+
+                    var title = document.createElement("div");
+                    title.innerHTML = obj.title;
+                    f.appendChild(title);
+
+
+
+                }
+            }
+        }
+
+
+    }
+
+    fenye(arr.length,6,arr);
+
+   /* function create(name,father,classname) {
+        var w = document.createElement(name);
+        father.appendChild(w);
+        w.className = classname;
+        return w;
+    }*/
+
+    //create("div",document.body,"one");
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 180px;
+            height: 250px;
+            border: 2px solid black;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        #left {
+            width: 150px;
+            height: 250px;
+            float: left;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #right {
+            width: 20px;
+            height: 250px;
+            background-color: lightgrey;
+            float: right;
+        }
+
+        #wrap::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        #btn {
+            width: 20px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: lightblue;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+
+    <div id="left">哦额富哦佛飞蛾微积分见覅额外积分IE文件覅欧锦家附近开了多少积分卡兰蒂斯快乐的积分
+        地方记录的数据附近饭店客房交锋快乐的积分抗裂砂浆荆防颗粒见附件防空导弹螺蛳粉荆防颗粒金风科技地方
+        加快分解的数据分类考试附近开了多久 可靠方法开发开放；的方式开发李开复洛克菲勒的是否可靠离开的
+        尽快落地时间反馈了时间放松空间发的开始肯德基风口浪尖分类考试就发了快速减肥的咖啡卡的积分快乐
+        的积分两款手机课老师哦额富哦佛飞蛾微积分见覅额外积分IE文件覅欧锦家附近开了多少积分卡兰蒂斯快乐的积分
+        地方记录的数据附近饭店客房交锋快乐的积分抗裂砂浆荆防颗粒见附件防空导弹螺蛳粉荆防颗粒金风科技地方
+        加快分解的数据分类考试附近开了多久 可靠方法开发开放；的方式开发李开复洛克菲勒的是否可靠离开的
+        尽快落地时间反馈了时间放松空间发的开始肯德基风口浪尖分类考试就发了快速减肥的咖啡卡的积分快乐
+        的积分两款手机课老师哦额富哦佛飞蛾微积分见覅额外积分IE文件覅欧锦家附近开了多少积分卡兰蒂斯快乐的积分
+        地方记录的数据附近饭店客房交锋快乐的积分抗裂砂浆荆防颗粒见附件防空导弹螺蛳粉荆防颗粒金风科技地方
+        加快分解的数据分类考试附近开了多久 可靠方法开发开放；的方式开发李开复洛克菲勒的是否可靠离开的
+        尽快落地时间反馈了时间放松空间发的开始肯德基风口浪尖分类考试就发了快速减肥的咖啡卡的积分快乐
+        的积分两款手机课老师
+    </div>
+
+
+    <div id="right"></div>
+    <div id="btn"></div>
+</div>
+
+<script>
+
+    var oWrap = document.getElementById("wrap");
+    var oLeft = document.getElementById("left");
+    var oRight = document.getElementById("right");
+    var oBtn = document.getElementById("btn");
+
+    oBtn.onmousedown = function () {
+
+        oRight.onmousemove = function (ev) {
+
+            var ev = ev || window.event;
+            var max = oRight.clientHeight - oBtn.offsetHeight;
+
+            oBtn.style.top = ev.clientY - oWrap.offsetLeft - oWrap.clientTop - oBtn.offsetHeight / 2 + "px";
+
+            var x = oBtn.offsetTop / max;
+
+            oLeft.style.top = -oLeft.clientHeight * x + "px";
+
+
+
+        }
+    }
+
+    document.onmouseup = function () {
+
+        document.onmousemove = null;
+    }
+
+    /*aaa(oRight,oBtn)
+
+
+    function aaa(obj1,obj2){
+        obj1.onmousemove = function (ev) {
+            var ev = ev || window.event;
+            var max = obj1.clientHeight - obj2.offsetHeight;
+
+            obj2.style.top = ev.clientY - oWrap.offsetLeft - oWrap.clientTop - oBtn.offsetHeight / 2 + "px";
+
+            var x = oBtn.offsetTop / max;
+
+            oLeft.style.top = -oLeft.clientHeight * x + "px";
+
+
+
+        }
+    }*/
+
+
+</script>
+</body>
+</html>

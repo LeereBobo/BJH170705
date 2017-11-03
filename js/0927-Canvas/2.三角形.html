@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="300" height="300"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		
+		context.beginPath();
+		context.moveTo(30,70);
+		context.lineTo(95,150);
+		context.lineTo(95,260);
+		context.lineTo(30,70);
+		context.lineTo(95,150);//线宽导致三角的一角缺失
+		context.strokeStyle = "red";
+		context.lineWidth = "10";
+		context.stroke();
+		context.closePath();
+		
+	</script>
+</html>

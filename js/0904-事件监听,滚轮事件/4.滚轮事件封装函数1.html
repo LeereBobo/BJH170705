@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 700px;
+            height: 700px;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+    var wrap = document.getElementById("wrap");
+    wrap.onmousewheel = function (ev) {
+        var e = ev || window.event;
+
+
+        judge(e, function(){
+            wrap.style.backgroundColor = "red";
+        },function(){
+            wrap.style.backgroundColor = "green";
+        });
+    }
+
+
+    function judge(e,upFn,downFn) {
+        if (e.wheelDelta > 0) {
+            if(downFn){
+                downFn();
+            }
+        } else {
+           if(upFn){
+            upFn();
+           }
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

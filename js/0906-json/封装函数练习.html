@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //m条数据，每页n条，计算有多少页
+    function count(m, n) {
+        var count = Math.ceil(m / n);
+        return count;
+
+    }
+
+    var a = count(30, 4);
+    console.log(a);
+
+    function ab(m, n) {
+        var count = Math.floor(m / n);
+        if (m % n != 0) {
+            count += 1;
+        }
+        return count;
+    }
+
+
+    //给定一个字符串，查找任意字符的个数
+
+    function num(a, b) {
+        var num1 = 0;
+        for (var i = 0; i < a.length; i++) {
+            if (a[i] == b) { //a.charAt(i) ==num1
+                num1++;
+            }
+        }
+        console.log(num1);
+    }
+
+    num("hello,world", "l")
+
+
+    //判断数组中重复元素的个数(元素为字符串)
+    function repeat(arr1) {
+        
+        var arr = [];
+        for (var i = 0; i < arr1.length; i++) {
+            var tf = false;
+            for (var j = 0; j < arr.length; j++) {
+                if (arr1[i] == arr[j]) {
+                    tf = true;
+                    break;
+                }
+            }
+
+            if (!tf) {
+                arr.push(arr1[i]);
+            }else{
+                continue;
+            }
+            var count = 1;
+            for(var k = i + 1;k < arr1.length;k++){
+                if(arr1[i] == arr[k]){
+                    count++;
+                }
+            }
+
+            console.log(arr1[i] + ":" + count);
+        }
+
+
+
+    }
+
+    var arr2 = ["aa", "bb", "aa", "c", "bb", "aa"];
+    repeat(arr2);
+
+
+    //数组去重
+
+    var arr2 = ["aa", "bb", "d", "aa", "c", "bb", "aa"];
+
+    function noRepeat(arr) {
+        var arr4 = [];
+
+        for (var i = 0; i < arr.length; i++) {
+
+            var tf = false;
+            for (var j = 0; j < arr4.length; j++) {
+                if (arr[i] == arr4[j]) {
+                    tf = true;
+                    break;
+                }
+            }
+
+            if (!tf) {
+                arr4.push(arr[i]);
+            }
+        }
+        console.log(arr4);
+    }
+
+    noRepeat(arr2);
+
+
+</script>
+
+</body>
+</html>

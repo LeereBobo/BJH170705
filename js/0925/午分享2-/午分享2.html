@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<input type="text" list="mydata" placeholder="热门电影"/>
+		<datalist id="mydata">
+			<option value="大圣归来" label="Top1"></option>
+			<option value="归来" label="Top1"></option>
+		</datalist>-->
+		
+		<input type="text" list="mydata"/>
+		<datalist id="mydata">
+			<option value="@qq.com" label="Top1"></option>
+			<option value="@163.com" label="Top1"></option>
+		</datalist>
+	</body>
+	
+	<script type="text/javascript">
+		var put = document.querySelector("input");
+		var option = document.querySelectorAll("option");
+		var oValue = [];
+		for (var i = 0; i < option.length; i++) {
+			oValue.push(option[i].value);
+		}
+//		console.log(oValue);
+		var inputVal = [];
+		put.oninput = function(e){
+			inputVal.push(e.data);
+			var str = inputVal.join("");
+//			console.log(str);
+
+			for (var j = 0; j < option.length; j++) {
+				option[j].style.display = "block";
+				option[j].value = str + oValue[j];
+			}
+		}
+	</script>
+</html>

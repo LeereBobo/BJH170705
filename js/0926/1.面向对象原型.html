@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+		//1.原型对象
+		//所有的对象都包含一个__proto__对象，我们称之为原型对象
+		//__proto__里面的属性可以直接通过对象调用
+		//创建对象
+//		var obj = new Object();
+//		
+//		function People(){
+//			this.name = "";
+//		}
+//		var p = new People();
+//		console.log(p);
+
+		//2.原型使用及创建
+		function People(){
+			this.name = "leere";
+		}
+		
+		//prototype:称之为原型
+		//所有的构造函数都有一个默认的属性prototype
+		//而prototype里面所写的内容都会在__proto__原型对象中存在
+		People.prototype = {
+			aa:"uuu"
+		};
+		var  p = new People();
+		console.log(p.aa);
+	</script>
+</html>

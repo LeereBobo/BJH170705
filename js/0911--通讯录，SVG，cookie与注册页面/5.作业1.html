@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /*  1.将网址：http://www.baidu.com?name=nihao&pwd=88&id=99
+     转换为{name:"nihao",pwd:"88",id:"99"}格式*/
+
+    var str = "http://www.baidu.com?name=nihao&pwd=88&id=99";
+    var arr = str.split("?");
+    var arr1 = arr[1];
+    var arr2 = arr1.split("&");
+
+
+    var obj = new Object();
+    for (var i = 0; i < arr2.length; i++) {
+        var arr3 = arr2[i].split("=");
+        obj[arr3[0]] = arr3[1];
+
+    }
+
+    console.log(obj);
+
+
+    /*var str = "http://www.baidu.com?name=nihao&pwd=88&id=99";
+    var arr = str.split("?");
+    var arr1 = arr[1];
+    var arr2 = arr1.split("&");
+
+
+    var obj = new Object();
+
+    function transform(obj1) {
+        for(var i = 0; i < arr.length; i++){
+            var arr3 = obj1[i].split("=");
+            obj1[arr3[0]] = arr3[1];
+        }
+        console.log(obj);
+    }
+
+    transform(arr2);*/
+
+
+    //2.去除一个字符串中的重复字符
+    /*var str = "aa,bb,aa,b,bb,c,cc,c,dd,dd";
+    var arr = str.split(",");
+    var arr1 = [];
+    for (var i = 0; i < arr.length; i++) {
+        var tf = false;
+        for (var j = 0; j < arr1.length;j++) {
+            if (arr[i] == arr1[j]) {
+                tf = true;
+                break;
+            }
+        }
+        if (!tf) {
+            arr1.push(arr[i]);
+        }
+    }
+    console.log(arr1);*/
+    
+
+    var str = "ababcdcdds";
+    for(var i = 0; i < str.length; i++){
+        var m = str[i];
+        for(var j = i+1; j < str.length; j++){
+            if(m == str[j]){
+                str = str.slice(0,j) + str.slice(j+1,str.length);
+                j--;
+            }
+        }
+    }
+    
+    console.log(str);
+
+
+</script>
+</body>
+</html>

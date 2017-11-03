@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    // var a = {name:"张三",sex:"nan"};
+    // var a1 = {name:"张三",sex:"nan"};
+    // var a2 = {name:"张三",sex:"nan"};
+    // 1.创建方式一
+    // var obj = {
+    //     arr:[a,a1,a2],
+    //     letter:"Y"
+    // };
+    // console.log(obj.arr[0]);
+    // var endArr = [obj];
+    // console.log(endArr[0].arr[0]);
+
+    // 创建方式二
+    // var obj = new Object();
+    // obj.letter = "";
+    // obj.arr = [];
+
+
+    var p1 = {name:"游州",tel:110,letter:"Y"};
+    var p2 = {name:"张然",tel:120,letter:"Z"};
+    var p3 = {name:"苗姐",tel:114,letter:"M"};
+    var p4 = {name:"张乐",tel:119,letter:"Z"};
+    var arr = [p1,p2,p3,p4];
+    var end = my(arr);
+    console.log(end);
+    function my(myarr) {
+        var endArr = [];
+        for (var i = 0; i < myarr.length; i++) {
+            var first = myarr[i];
+
+            // 遍历结果数组中是否存在了相同的字母
+            var judge = false;
+            for (var j = 0; j < endArr.length; j++) {
+                var second = endArr[j];
+                if(first.letter == second.letter) {
+                    second.arr.push(first);
+                    judge = true;
+                }
+            }
+            if(judge == false) {
+                var obj = new Object();
+                obj.letter = first.letter;
+                obj.arr = [first];
+                endArr.push(obj);
+            }
+        }
+        return endArr;
+    }
+
+
+
+</script>
+</html>

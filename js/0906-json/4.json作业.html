@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrap {
+            width: 250px;
+            height: 300px;
+            border: 2px solid lightgrey;
+            margin: 15px;
+            text-align: center;
+            display: inline-block;
+        }
+        .myFont {
+            font-size: 20px;
+            color: hotpink;
+        }
+        .imgs {
+            width: 250px;
+
+        }
+
+        input {
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+        }
+
+        .allBtn {
+            position: absolute;
+            bottom: 10px;
+            left: 30%;
+        }
+
+        .spanBtn {
+            margin: 5px;
+            border:1px solid red;
+        }
+        #clickBtn {
+            position: absolute;
+            left: 150px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="num" placeholder="希望本页显示几条呢" value="">
+    <button id="clickBtn">提交数据</button>
+    <div id="fath"></div>
+<script>
+    var oInput = document.getElementById("num");
+    var clickBtn = document.getElementById("clickBtn");
+    var fath = document.getElementById("fath");
+   
+    
+    var str = '[{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"}]';
+   
+    //创建函数
+    function create(name,father,className1){
+        var w = document.createElement(name);
+        father.appendChild(w);
+        w.className = className1;
+        return w;
+
+    }
+
+    //获取json数据
+    var obj = JSON.parse(str);
+    console.log(obj);
+    /*for(var i = 0; i < obj.length; i++){
+        var a = obj[i];
+        createMy(a);
+    }*/
+
+    
+    function createMy(myObj){
+        var myWrap = create("div",fath,"wrap");
+        var myImg = create("img",myWrap,"imgs");
+        myImg.src = myObj.img;
+        var myTit = create("div",myWrap,"myFont");
+        myTit.innerHTML = myObj.title;
+    }
+
+    
+    //创建页码按钮
+    function createBtn(n){
+        var allBtns = create("div",fath,"allBtn");
+        allBtns.innerHTML = "";
+        for(var i = 0; i < n; i++){
+            var btns = create("span",allBtns,"spanBtn");
+                btns.innerHTML = i + 1;
+
+        }
+
+    }
+
+//    createBtn(4);
+    
+    //点击获取input值
+    var code = 0;
+    clickBtn.onclick = function(){
+
+        fath.innerHTML = "";
+
+
+        var theNum = oInput.value;
+        console.log(theNum);
+        var allNum = 18;
+
+        if(allNum % theNum == 0){
+            code = allNum / theNum;
+            createBtn(code);
+        }else{
+            code = parseInt(allNum / theNum) + 1;
+            createBtn(code);
+        }
+//        var code = Math.ceil(allNum / theNum);
+
+        for(var i = 0; i < theNum; i++){
+            var a = obj[i];
+            createMy(a);
+        }
+    }
+
+
+
+    
+</script>
+
+</body>
+</html>

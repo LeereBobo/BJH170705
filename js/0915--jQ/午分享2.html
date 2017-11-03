@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 100px;
+				height: 100px;
+				background-color: lightblue;
+				position: absolute;
+				top: 300px;
+				left: 300px;
+			}
+			
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+
+		</div>
+		<div id="div1"></div>
+	</body>
+	<script type="text/javascript">
+		var wrap = document.getElementById("wrap");
+		var div1 = document.getElementById("div1");
+
+		function move(obj) {
+			obj.onmousedown = function(e) {
+				var e = e || window.event;
+				beforeX = ev.clientX;
+				beforeY = ev.clientY;
+				startX = wrap.offsetLeft;
+				startY = wrap.offsetTop;
+				document.onmousemove = function(ev) {
+					var e = ev || window.event;
+					endX = ev.clientX;
+					endY = ev.clientY;
+					obj.style.left = startX + endX - beforeX + "px";
+					obj.style.top = startY + endY - beforeY + "px";
+				}
+				document.onmouseup = function() {
+					document.onmousemove = null;
+				}
+			}
+		}
+		move(wrap);
+		move(div1);
+
+		function judge(a, b) {
+			leftmin = wrap.offsetLeft - div1.offsetWidth;
+			leftmax = wrap.offsetTop + wrap.offsetWidth;
+			topmin = wrap.offsetTop - div1.offsetHeight;
+			topmax = wrap.offsetTop + wrap.offsetHeight;
+			if (div1.offsetLeft > leftmin && div1.offsetleft > leftmax && ) {
+				wrap.innerHTML = "crash";
+			}
+		}
+	</script>
+
+</html>

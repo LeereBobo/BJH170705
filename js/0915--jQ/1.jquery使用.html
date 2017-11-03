@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		
+		<!--下载到本地再引入-->
+		<!--<script src="jquery.js.js"></script>-->
+		
+		<!--复制网址，直接引入-->
+		<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			console.log(window);
+			
+			//在window中存在两个新的属性，一个是$,一个是jQuery
+			//可以通过这两个属性直接使用jQuery里面的函数
+			
+			//1.获得标签,获得一个jQuery对象，本质上是一个数组
+			//$("#div1");  等同于var m = $("#div1");
+			console.log($("#div1"));
+			
+			var m = $("#div1");
+			m.css({
+				width:"100px",
+				height:"100px",
+				background:"red"
+			})
+			
+			$("#div1").css({
+				width:"100px",
+				height:"100px",
+				background:"red"
+			})
+			
+			
+		</script>
+	</body>
+</html>

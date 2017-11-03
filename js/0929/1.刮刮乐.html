@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#wrap {
+				width: 300px;
+				height: 500px;
+				position: relative;
+			}
+			
+			#content {
+				width: 100%;
+				height: 100%;
+				background: url(0.jpg) no-repeat;
+				background-size: 100% 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#canvas {
+				/*background-color: grey;*/
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div id="content"></div>
+			<canvas id="canvas" width="300" height="500"></canvas>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var content = document.getElementById("content");
+		var ctx = canvas.getContext("2d");
+
+		function drawLine(start_x, start_y, end_x, end_y) {
+			ctx.restore();
+			ctx.beginPath();
+			ctx.moveTo(start_x, start_y);
+			ctx.lineTo(end_x, end_y);
+			ctx.strokeStyle = "white";
+			ctx.lineWidth = "20";
+			ctx.lineCap = "round"; //矩形设置圆角
+			ctx.stroke();
+			ctx.closePath();
+			ctx.save();
+		}
+		ctx.beginPath();
+		ctx.fillStyle = "grey";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		ctx.closePath();
+		ctx.globalCompositeOperation = "destination-out";
+		canvas.onmousedown = function(e) {
+			var e = e || window.event;
+			var start_x1 = e.offsetX;
+			var start_y1 = e.offsetY;
+			canvas.onmousemove = function(ev) {
+				var ev = ev || window.event;
+				var end_x1 = ev.offsetX;
+				var end_y1 = ev.offsetY;
+				drawLine(start_x1, start_y1, end_x1, end_y1);
+				start_x1 = end_x1;
+				start_y1 = end_y1;
+				var a = scale();
+				if (a > 0.3) {
+					canvas.style.display = 'none';
+				}
+			}
+		}
+		canvas.onmouseup = function() {
+			canvas.onmousemove = null;
+		}
+
+		function scale() {
+			var data = ctx.getImageData(0, 0, 300, 500);
+			var count = 0;
+			var allcount = data.data.length / 4;
+			for (var i = 0; i < data.data.length; i += 4) {
+				if (data.data[i + 3] < 128) {
+					count++;
+				}
+			}
+			return count / allcount;
+		}
+	</script>
+
+</html>

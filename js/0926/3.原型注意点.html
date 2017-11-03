@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+//		function Student(){
+//			
+//		}
+//		
+//		Student.prototype = {//给__proto__添加属性
+////			name:"张三"  
+//			move:function(){//里面一般放函数，因为函数多数不变动
+//				console.log(this);//s
+//			}
+//		}
+//		
+//		var s = new Student();
+//		s.name = "李四";
+////		console.log(s.__proto__.name);//张三
+////		console.log(s.name);//李四
+//		s.move();
+
+
+		//原型继承
+		function People(){
+			this.name = "huehue";
+			this.age = "";
+			this.sex = "";
+			
+		}
+		
+		function Student(score){
+			this.score = score;
+		}
+		Student.prototype = new People();
+		var s = new Student("99");
+		console.log(s);
+		
+	</script>
+</html>

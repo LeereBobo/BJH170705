@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #line {
+            width: 800px;
+            height: 600px;
+            background-color: #0f0f0f;
+        }
+
+        #wrap {
+            /*width: 800px;*/
+            /*height: 600px;*/
+            background-color: #0f0f0f;
+        }
+        
+        .myAll {
+            float: left;
+            color: darkgrey;
+            margin: 20px 20px;
+            position: relative;
+        }
+
+        #contents {
+            width: 710px;
+            height: 430px;
+            border:1px solid darkgrey;
+            margin:auto;
+            padding: 20px;
+        }
+        
+        #contents::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .myTitle {
+            width: 130px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            float: left;
+            margin-left:170px;
+        }
+
+        .myTitle:first-child {
+            color: deepskyblue;
+            border-bottom: 1px solid deepskyblue;
+        }
+
+        .myImg {
+            border:1px solid black;
+        }
+
+        .myImg:hover {
+            border:1px solid deepskyblue;
+        }
+
+        .myState {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            padding:2px 6px;
+            background-color: grey;
+            font-size: 14px;
+        }
+
+
+        .myAll:first-child .myState {
+            background-color: #00a500;
+            color: white;
+
+        }
+
+        #titleFa {
+            color: darkgrey;
+            width: 710px;
+            height: 50px;
+            font-size: 15px;
+            margin: auto;
+
+
+        }
+        
+        #titleFa::after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div id="line">
+        <div id="titleFa"></div>
+        <div id="wrap">
+            <div id="contents"></div>
+        </div>
+    </div>
+
+
+<script>
+
+    var str = '[{"title":"官方活动","nr":[{"text":"新战役推出 破泞之战第二幕:深渊密室","kaiguan":"进行中","img":"img/download-1.jpg"},{"text":"新战役推出 破泞之战第二幕:深渊密室","kaiguan":"已结束","img":"img/download-2.jpg"},{"text":"新战役推出 破泞之战第二幕:深渊密室","kaiguan":"已结束","img":"img/download-3.jpg"},{"text":"新战役推出 破泞之战第二幕:深渊密室","kaiguan":"已结束","img":"img/download-4.jpg"}]}]'
+
+    var str2 = '[{"title":"赛事活动","nr":[{"text":"新战役推出 破泞之战第二幕:深渊密室","kaiguan":"","img":"img/download-5.jpg"},{"text":"新战役推出 破泞之战第二幕:深渊密室","kaiguan":"","img":"img/download-6.jpg"},{"text":"新战役推出 破泞之战第二幕:深渊密室","kaiguan":"","img":"img/download-7.jpg"},{"text":"新战役推出 破泞之战第二幕:深渊密室","kaiguan":"","img":"img/download-8.jpg"}]}]'
+
+
+    var arr = JSON.parse(str);
+    var arr2 = JSON.parse(str);
+
+    function create(name,father,classname) {
+        var w = document.createElement(name);
+        father.appendChild(w);
+        w.className = classname;
+        return w;
+    }
+
+
+
+    function createTitle(obj){
+        var titleFa = document.getElementById("titleFa");
+        var titles = create("div",titleFa,"myTitle");
+        titles.innerHTML = obj.title;
+    }
+
+
+    function createContent(obj){
+
+        var contents = document.getElementById("contents");
+        console.log(contents);
+        var alls = create("div",contents,"myAll");
+        var states = create("div",alls,"myState");
+        states.innerHTML = obj.kaiguan;
+        var images = create("img",alls,"myImg");
+        images.src = obj.img;
+        var texts = create("div",alls,"myText");
+        texts.innerHTML = obj.text;
+    }
+
+    function end(obj){
+
+        for(var i = 0; i < obj.length; i++){
+            createTitle(obj[i]);
+
+            var de = obj[i];
+            var de1 = obj[i].nr;
+
+            for(var j = 0; j < de1.length; j++){
+
+                var dd = de1[j];
+                createContent(dd);
+
+            }
+        }
+    }
+
+    end(arr);
+</script>
+
+</body>
+</html>

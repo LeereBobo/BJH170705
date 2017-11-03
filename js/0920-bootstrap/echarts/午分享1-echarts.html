@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 500px;
+				height: 500px;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap"></div>
+	</body>
+	<script type="text/javascript" src="echarts.min.js">
+		
+	</script>
+	<script>
+		var wrap = echarts.init(document.getElementById("wrap"));
+		console.log(wrap);
+		var option = {
+			title:{
+				text:"逃课名单"
+			},
+			xAxis:{
+				data:["研8","研9","研10"]
+			},
+			yAxis:{
+				
+			},
+			series:[{
+				type:"pie",//bar
+				data:[18,90,20]
+			}],
+			tooltip:{
+				
+			}//显示数据
+		}
+		wrap.setOption(option)
+//		wrap.setOption(option)
+	</script>
+</html>

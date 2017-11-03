@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+
+    <script>
+        var wrap = document.getElementById("wrap");
+        
+        wrap.onclick = function(){
+//            console.log(this);
+            //add(); -->this:window
+
+            add.apply(wrap,[]); //与call的区别是参数为数组
+
+            add.call(wrap,10);  //this-->wrap
+            //call传参数，直接按序写入就好
+
+           /* wrap.m = add;
+              wrap.m();
+              //含义同add.call(wrap)*/
+        }
+
+        /*argument:参数
+        //add(标签，args);
+        //add(标签，arg1,arg2,...);
+        相同标签可写多个*/
+
+        function add(r){
+            console.log(this);
+            console.log(r);
+
+        }
+    </script>
+</body>
+</html>

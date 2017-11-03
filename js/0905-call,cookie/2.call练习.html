@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .all {
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<script>
+
+    function createElement(name,father,classname){
+
+        var w = document.createElement(name);
+        w.className = classname;
+        father.appendChild(w);
+        return w;
+
+
+    }
+
+    var m = createElement("div",document.body,"all");
+
+
+
+</script>
+</body>
+</html>

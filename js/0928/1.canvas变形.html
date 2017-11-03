@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			canvas {
+				background-color: lightgoldenrodyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		ctx.beginPath();
+		ctx.fillStyle = "blue";
+		ctx.fillRect(0,0,100,100);
+		
+		//平移
+//		ctx.translate(150,150);
+//		ctx.fillStyle = "red";
+//		ctx.fillRect(0,0,100,100);
+//		ctx.closePath();
+
+		//旋转
+		ctx.translate(300,0);
+		ctx.rotate(Math.PI / 4);
+		ctx.fillStyle = "red";
+		ctx.fillRect(0,0,100,100);
+		
+		//缩放
+//		ctx.translate(150,150);
+//		ctx.scale(2,2);
+//		ctx.fillStyle = "red";
+//		ctx.fillRect(0,0,100,100);
+//		ctx.closePath();
+		
+		
+	</script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .first-class {
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+            border:2px solid black;
+            font-size: 30px;
+            display: inline-block;
+            background-color: lightblue;
+            color: white;
+        }
+
+        .china-sty,.eng-sty {
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!--<img src="img/download-1.jpg" alt="">
+    <img src="img/download-2.jpg" alt="">
+    <img src="img/download-3.jpg" alt="">-->
+
+    <div id="wrap">
+
+
+
+    </div>
+
+<script>
+
+    //标签的自定义属性
+    /*var imgs = document.getElementsByTagName("img");
+    for(var i = 0; i < imgs.length; i++){
+        imgs[i].index = i;
+        
+        imgs[i].onclick = function(){
+            console.log(this.index);
+        }
+    }*/
+
+//    var str = '[{"title":"官方活动","date":[{"img":"download-1.jpg","state":"1","title":"暗黑之夜"}]},{"title":"官方活动","date":[{"img":"download-1.jpg","state":"1","title":"暗黑之夜"}]},{"title":"官方活动","date":[{"img":"download-1.jpg","state":"1","title":"暗黑之夜"}]},{"title":"官方活动","date":[{"img":"download-1.jpg","state":"1","title":"暗黑之夜"}]}]';
+    var str1 = '{"title":"官方活动","date":[{"img":"1.jpg","state":"1","title":"暗黑之夜"}]}';
+    var str2 = '[{"title":"首页", "eng":"HOME"},{"title":"资讯","eng":"NEW"},{"title":"赛事","eng":"MATCH"},{"title":"互动","eng":"INTERACION"},{"title":"资料","eng":"DATA"},{"title":"服务","eng":"SERVICE"},{"title":"下载","eng":"DOWN"}]';
+
+    var arr = JSON.parse(str2);
+
+    function create(name,father,classname) {
+        var w = document.createElement(name);
+        father.appendChild(w);
+        w.className = classname;
+        return w;
+    }
+
+    function createAll(data,i){
+        var wrap = document.getElementById("wrap");
+
+        var first = create("div",wrap,"first-class");
+
+        var china = create("div",first,"china-sty");
+        china.innerHTML = arr[i].title;
+
+        var english = create("div",first,"eng-sty");
+        english.innerHTML = arr[i].eng;
+
+    }
+
+    for(var i = 0; i < arr.length; i++){
+        createAll(str2,i);
+    }
+</script>
+
+</body>
+</html>

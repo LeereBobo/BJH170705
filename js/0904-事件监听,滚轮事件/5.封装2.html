@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 600px;
+            height: 600px;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+    var wrap = document.getElementById("wrap");
+
+//    写一个函数，即可添加事件，又可根据上下移动进行自己的修改
+    function mouseWheel(obj,fn1,fn2){
+        obj.onmousewheel = function(ev){
+            var e = ev || window.event;
+            judge(e,fn1,fn2);
+
+        }
+    }
+
+    function judge (m,upFn,downFn){
+        if(m.wheelDelta > 0){
+            if(downFn){
+                downFn();
+            }
+        }else {
+            if(upFn){
+                upFn();
+            }
+        }
+    }
+
+    mouseWheel(wrap,function(){
+        wrap.style.backgroundColor = "red";
+    },function(){
+        wrap.style.backgroundColor = "green";
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var  re= /hello/;
+			var str = "hshshshsh";
+			
+			//search,match,replace
+			//1.search():用于检索字符串中指定的子字符串，或检索与正则表达式相匹配的子字符串。
+				       //如果没有找到任何匹配的子串，则返回 -1
+			var n=str.search(re);
+ 			console.log(n);
+ 			
+ 			//2.match():在字符串内检索指定的值，或找到一个或多个正则表达式的匹配
+ 			var n1=str.match(re);//没有g(全局搜索),只出现首次，无值为null，有值返回数组
+			console.log(n1);
+			
+			//3.replace():在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串
+			var n2=str.replace(re,"a");
+ 			console.log(n2); 
+ 			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas{
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+<canvas width="500" height="500" id="myCanvas"></canvas>
+<script>
+    var oCanvas = document.getElementById("myCanvas");
+    var ctx = oCanvas.getContext("2d");
+
+    //第一种
+//    ctx.beginPath();
+//    ctx.moveTo(50,50);
+//    ctx.lineTo(50,150);
+//    ctx.lineTo(200,150);
+//    ctx.lineTo(200,50);
+//    ctx.closePath();
+//    ctx.stroke();
+//    ctx.fill();
+
+    //第二种
+    ctx.beginPath();
+    //strokeRect(x,y,width,height)
+    
+    //边框带颜色
+//    ctx.strokeStyle = "pink";
+//    ctx.strokeRect(100,100,200,50);
+
+    //填充颜色
+    ctx.fillStyle = "pink";
+    ctx.fillRect(100,100,200,100);//在画布上绘制200*100的矩形,从左上角开始 (100,100)
+//fillRect(x,y,width,height) 方法定义了矩形当前的填充方式。
+	console.log(oCanvas);
+    oCanvas.onclick = function () {
+    		console.log(1111);
+        //清除画布上的某个矩形位置上的图形 (x.y.w.h)
+           ctx.clearRect(100,100,50,50);
+        //清除整个画布的内容
+//      ctx.clearRect(0,0,oCanvas.width,oCanvas.heigth);
+    }
+</script>
+</body>
+</html>

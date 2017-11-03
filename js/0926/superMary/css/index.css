@@ -1,0 +1,28 @@
+#wrap {
+	width: 900px;
+	height: 500px;
+	border: 1px solid red;
+	margin: 0 auto;
+}
+
+.content {
+	width: 100%;
+	height: 400px;
+	position: relative;
+	background: url(../img/04512A61741972ACAE415DB22EBC1E35.jpg);
+	background-size: 100% 100%;
+	background-position:  0 0;
+}
+.road {
+	width: 100%;
+	height: 100px;
+	background: gray;
+}
+.hero {
+	width: 50px;
+	height: 50px;
+	background: red;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}

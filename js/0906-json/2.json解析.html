@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var str = '{"name":"zhang"}'; //json字符串
+
+    /*var s = {name:"zhang "}; //js数据类型-对象类型
+   var a = "nihao";
+   var b = [];*/
+
+//    console.log(str);
+
+    var obj = JSON.parse(str);
+//    console.log(obj.name);
+
+    var s3 = '[{"name":"李晓芮","tel":"18293433887","photo":"img/32.jpg"},{"name":"瓜瓜","tel":"18293433887","photo":"img/32.jpg"}]'
+    var arr = JSON.parse(s3);
+    for(var i = 0;i < arr.length; i++){
+        var obj1 = arr[i];
+//        console.log(obj1.name);
+    }
+
+
+    var s4 = '[{"class":"研发一","student":[{"name":"张三"},{"name":"李四"},{"name":"王五"}]},{"class":"研发二","student":[{"name":"放假"},{"name":"分隔"},{"name":"发过"}]},{"class":"研发三","student":[{"name":"水电"},{"name":"史蒂"},{"name":"二恶"}]}]'
+    var arr1 = JSON.parse(s4);
+    console.log(arr1);
+    for(var i = 0; i < arr1.length;i++){
+        var obj = arr1[i];
+        var s = obj.student;
+        
+        for(var j = 0; j< s.length;j++){
+            var student = s[j];
+            console.log(student.name);
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

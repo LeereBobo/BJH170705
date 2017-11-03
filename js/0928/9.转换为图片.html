@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas" width="549" height="412"></canvas>
+
+</body>
+<script type="text/javascript">
+    // 把文件存储到本地
+    var savaFile=function(data,filename)
+    {
+        var save_link=document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        save_link.href=data;
+        save_link.download=filename;
+        var event=document.createEvent('MouseEvents');
+        event.initMouseEvent('click',true,false,window,0,0,0,0,0,false,false,false,false,0,null);
+        save_link.dispatchEvent(event);
+    };
+    var canvas = document.querySelector("#canvas");
+    var ctx = canvas.getContext("2d");
+    var img = new Image();
+    img.src = "333.png";
+    img.onload = function () {
+        ctx.restore();
+        ctx.beginPath();
+        ctx.drawImage(img,0,0,canvas.width,canvas.height);
+        var text = "蒋杏飞";
+
+        ctx.strokeText(text,182,109);
+        ctx.closePath();
+        ctx.save();
+        // 得到图片数据
+        var imagedata = canvas.toDataURL();
+        // 把数据存储到路径中
+        savaFile(imagedata,"111.png");
+    }
+
+</script>
+</html>

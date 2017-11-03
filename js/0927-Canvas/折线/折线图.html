@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#canvas{
+			background: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="600" height="600">
+		你的电脑不支持H5，请升级你的浏览器。
+	</canvas>
+</body>
+<script src="index.js"></script>
+<script>
+	var str = '[{"name":"1月","value":"100"},{"name":"2月","value":"500"},{"name":"3月","value":"300"},{"name":"4月","value":"900"},{"name":"5月","value":"100"},{"name":"6月","value":"500"},{"name":"7月","value":"900"}]'
+	var reg = JSON.parse(str);
+	var canvas = document.querySelector('#canvas');
+    
+    var mk = new Draw(reg,canvas,{
+    	color:'blue',
+    	lineWidth:2,
+    	add:30,
+    	coloradd:'red',
+    	widthadd:0.5
+    })
+    mk.drawPiex();
+    mk.drawPoint()
+
+
+
+
+
+
+
+</script>
+</html>

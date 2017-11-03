@@ -1,0 +1,83 @@
+[{
+    "personName": "爷爷",
+    "personId": "personId0",
+    "child": [
+        "personId1", "personId2"
+    ],
+    "mate": [],
+    "generation": 1
+}, {
+    "personName": "父亲",
+    "personId": "personId1",
+    "child": [
+        "personId3", "personId4", "personId5"
+    ],
+    "mate": ["personId6"],
+    "generation": 2
+}, {
+    "personName": "母亲",
+    "personId": "personId6",
+    "child": [],
+    "mate": [],
+    "generation": 2
+}, {
+    "personName": "叔叔",
+    "personId": "personId2",
+    "child": [
+        "personId7", "personId8"
+    ],
+    "mate": [],
+    "generation": 2
+}, {
+    "personName": "自己",
+    "personId": "personId3",
+    "child": [],
+    "mate": [],
+    "generation": 3
+}, {
+    "personName": "大哥",
+    "personId": "personId4",
+    "child": [],
+    "mate": [],
+    "generation": 3
+}, {
+    "personName": "妹妹",
+    "personId": "personId5",
+    "child": [
+        "personId9", "personId10"
+    ],
+    "mate": [],
+    "generation": 3
+}, {
+    "personName": "表哥",
+    "personId": "personId7",
+    "child": [
+        "personId11"
+    ],
+    "mate": [],
+    "generation": 3
+}, {
+    "personName": "表妹",
+    "personId": "personId8",
+    "child": [],
+    "mate": [],
+    "generation": 3
+}, {
+    "personName": "孩儿",
+    "personId": "personId9",
+    "child": [],
+    "mate": [],
+    "generation": 4
+}, {
+    "personName": "叮当",
+    "personId": "personId10",
+    "child": [],
+    "mate": [],
+    "generation": 4
+}, {
+    "personName": "艾克",
+    "personId": "personId11",
+    "child": [],
+    "mate": [],
+    "generation": 4
+}]

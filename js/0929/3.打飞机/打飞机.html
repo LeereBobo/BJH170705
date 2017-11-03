@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="wrap">
+        <div class="back"></div>
+        <canvas id="canvas" width="320" height="568"></canvas>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js" charset="utf-8"></script>
+<script src="./js/back.js" charset="utf-8"></script>
+<script src="./js/hero.js" charset="utf-8"></script>
+<script src="./js/bullet.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var hero;
+    var bulletObj;
+    var enemyObj;
+
+    var loadNum = 0;
+    // 创建英雄飞机
+    var heroImg = new Image();
+    heroImg.src = "./img/herofly.png";
+    // 创建子弹
+    var bulletImg = new Image();
+    bulletImg.src = "./img/bullet1.png";
+    // 创建敌机
+    var enemyImg = new Image();
+    enemyImg.src = "./img/enemy1.png";
+    heroImg.onload = function () {
+        loadNumChange();
+    }
+    bulletImg.onload = function () {
+        loadNumChange();
+    }
+    enemyImg.onload = function () {
+        loadNumChange();
+    }
+    // 加载图片结束以后开始执行游戏
+    function loadNumChange() {
+        loadNum++;
+        if(loadNum == 3) {
+            createHero();
+            // 创建子弹
+            bulletObj = new CreateElement({
+                cx:hero.cx + (hero.imgWidth - bulletImg.width)/2,
+                cy:hero.cy - bulletImg.height,
+                img:bulletImg,
+                num:1,
+                vy:-10,
+                duration:200,
+                aaaa:-bulletImg.height
+            });
+            enemyObj = new CreateElement({
+                cx:random(0,288),
+                cy:0,
+                img:enemyImg,
+                num:5,
+                vy:2,
+                duration:400,
+                aaaa:$("#canvas")[0].height
+            })
+            refresh();
+        }
+    }
+    function random(min,max) {
+        return parseInt(Math.random() * (max - min + 1) + min);
+    }
+
+    function createHero() {
+        hero = new HeroFly({
+            img:heroImg,
+            canvas:$("#canvas"),
+            num:5,
+            cx:($("#canvas")[0].width - (heroImg.width / 5)) / 2,
+            cy:$("#canvas")[0].height - heroImg.height
+        })
+    }
+    // // 循环调用
+    function refresh() {
+        // 英雄刷新
+        hero.ctx.clearRect(0, 0, $("#canvas")[0].width, $("#canvas")[0].height);
+        hero.drawFly();
+        // 子弹刷新
+        bulletObj.cx = hero.cx + (hero.imgWidth - bulletImg.width)/2,
+        bulletObj.cy = hero.cy - bulletImg.height,
+        bulletObj.refresh();
+        // 敌机刷新
+        enemyObj.cx = random(0,288);
+        enemyObj.refresh();
+        // 检测是否碰撞
+        judgeCrash();
+        window.requestAnimationFrame(refresh);
+    }
+    // 判断子弹和敌机是否相撞
+    function judgeCrash() {
+        for (var i = 0; i < enemyObj.array.length; i++) {
+            var enemy = enemyObj.array[i];
+            for (var j = 0; j < bulletObj.array.length; j++) {
+                var bullet = bulletObj.array[j];
+                if(bullet.cx > enemy.cx - bullet.imgWidth
+                    &&bullet.cx < enemy.cx + enemy.imgWidth
+                    &&bullet.cy > enemy.cy - bullet.imgHeight
+                    &&bullet.cy < enemy.cy + enemy.imgHeight){
+                        enemyObj.crashArr.push(enemy);
+                        enemyObj.beginCrash();
+                        enemyObj.array.splice(i,1);
+                        bulletObj.memoryArray.push(bullet);
+                        bulletObj.array.splice(j,1);
+                        j--;
+                        i--;
+                        break;
+                    }
+            }
+        }
+
+    }
+
+
+
+    window.onkeydown = function (ev) {
+        var e = ev || window.event;
+        switch (e.keyCode) {
+            case 65:
+                hero.vx = -5;
+                break;
+            case 87:
+                hero.vy = -5;
+                break;
+            case 68:
+                hero.vx = 5;
+                break;
+            case 83:
+                hero.vy = 5;
+                break;
+            default:
+                break;
+        }
+    }
+    window.onkeyup = function () {
+        hero.vy = 0;
+        hero.vx = 0;
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 600px;
+				margin: 0 auto;
+				border: 1px solid;
+				
+			}
+			
+			#wrap img {
+				display: inline-block;
+				width: 500px;
+				height: 500px;
+				
+				background-image: url(images/loading.gif);
+				background-size: 100% 100%;
+			}
+			#aaa{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+<!--			<div id="aaa"></div>-->
+			<img src="images/blank.gif" alt="" class="src" data-echo = "images/big-1.jpg"/>
+			<img src="images/blank.gif" alt="" class="src" data-echo = "images/big-2.jpg"/>
+			<img src="images/blank.gif" alt="" class="src" data-echo = "images/big-3.jpg"/>
+			<img src="images/blank.gif" alt="" class="src" data-echo = "images/big-4.jpg"/>
+			<img src="images/blank.gif" alt="" class="src" data-echo = "images/big-5.jpg"/>
+			<img src="images/blank.gif" alt="" class="src" data-echo = "images/big-6.jpg"/>
+			<img src="images/blank.gif" alt="" class="src" data-echo = "images/big-7.jpg"/>
+		</div>
+	</body>
+	
+	<script src="echo.js"></script>
+	<script type="text/javascript">
+		 var ele = document.getElementById("aaa");
+//		 var coords = ele.getBoundingClientRect();
+
+		Echo.init({
+			offset:500,//距离可视窗口以下的500px范围里的被加载出来
+			throttle:1000//毫秒数：加载的延迟时间
+		})
+	</script>
+</html>

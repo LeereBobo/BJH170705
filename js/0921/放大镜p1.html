@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				overflow:hidden;
+			}
+			
+			.small {
+				float: left;
+				width: 400px;
+				height: 400px;
+				background: url(0.jpg) no-repeat;
+				background-size: 100% 100%;
+				position: relative;
+			}
+			.mask {
+				width: 100px;
+				height: 100px;
+				background-color: white;
+				opacity: 0.5;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.big {
+				float: left;
+				width: 400px;
+				height: 400px;
+				background: url(0.jpg) no-repeat;
+				background-size: 1600px 1600px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="small">
+				<div class="mask"></div>
+			</div>
+			<div class="big"></div>
+		</div>
+	</body>
+	
+	<script src="jquery.js.js"></script>
+	<script type="text/javascript">
+		$(".small").mouseover(function(){
+			$(".mask").show();
+			$(".big").show();
+			
+			$(this).mousemove(function(ev){
+				
+				var x = ev.clientX - $(this).offset().left - $(".mask").width() / 2;
+				var y = ev.clientY - $(this).offset().top - $(".mask").height() / 2;
+				if (x < 0) {
+					x = 0;
+				}
+				if (x > $(this).width() - $(".mask").width()) {
+					x = $(this).width() - $(".mask").width();
+				}
+				if (y < 0) {
+					y = 0;
+				}
+				if (y > $(this).height() - $(".mask").height()) {
+					y = $(this).height() - $(".mask").height();
+				}
+				$(".mask").css({left:x,top:y});
+				var scale = $(".small").width() / $(".mask").width();
+				console.log(scale);
+				var bgX = x * scale;
+				var bgY = y * scale;
+				$(".big").css({backgroundPosition:-bgX +"px " + (-bgY) + "px"});
+				
+				
+			})
+			
+			
+			
+			
+			
+			
+		})
+		
+		$(".small").mouseout(function(){
+			$(".mask").hide();
+			$(".big").hide();
+		})
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

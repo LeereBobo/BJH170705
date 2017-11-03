@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		
+		<script src="zepto.js"></script>
+		<!--<script src="jquery.js.js"></script>-->
+		
+		<script type="text/javascript">
+			
+			var a = $("<div>jhicdjclij</div>",{id:"box"});
+			$(document.body).append(a);
+			
+			a.attr({id:"box"});
+			a.css({
+				width:"100px",
+				height:"100px",
+				background:"pink",
+				border:"1px solid black"
+			})
+			console.log(a.offset());//返回left top width height
+			console.log(a.width());//返回offsetWidth
+			console.log($.camelCase("dsfdsfds"));//驼峰命名
+			console.log($("body")[0],$(("div")[0]));//同一节点或者兄弟节点返回false，父子节点返回true
+			
+			
+		</script>
+		
+	</body>
+</html>

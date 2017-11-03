@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas {
+				background-color: lightgray;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width=600"" height="600"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		ctx.beginPath();
+		ctx.moveTo(100,100)
+		ctx.arc(100,100,100,0,Math.PI / 180 * 360);
+		ctx.fillStyle = "hotpink";
+		ctx.fill();
+		ctx.closePath();
+		
+		//设置组合方式，只保留当前图重叠的部分
+//		ctx.globalCompositeOperation = "source-in";
+		//设置组合方式，只保留当前图未重叠的部分
+//		ctx.globalCompositeOperation = "source-out"; //以上为新图在上，展示新图部分
+		
+		//原图覆盖新图
+//		ctx.globalCompositeOperation = "destination-over";
+		//绘制原图与新图重叠的部分
+//		ctx.globalCompositeOperation = "destination-in";
+		//绘制原图与新图不重叠的部分
+//		ctx.globalCompositeOperation = "destination-out";
+		//绘制原图与新图重叠的部分以及新图
+//		ctx.globalCompositeOperation = "destination-atop";  //以上为原图在上，展示原图部分
+		
+		//绘制新图和原图,重叠的部分加色处理
+//		ctx.globalCompositeOperation = "lighter";
+    		ctx.globalCompositeOperation = "xor";//重叠的部分透明
+		//绘制新图,覆盖原图
+//		ctx.globalCompositeOperation = "copy";
+
+		
+		ctx.beginPath();
+		ctx.moveTo(200,200)
+		ctx.arc(200,200,100,0,Math.PI / 180 * 360);
+		ctx.fillStyle = "cyan";
+		ctx.fill();
+		ctx.closePath();
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

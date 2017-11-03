@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 600px;
+				height: 300px;
+				border: 2px solid black;
+				position: relative;
+			}
+			
+			#box {
+				width: 50px;
+				height: 50px;
+				background-color: yellow;
+				border-radius: 50%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="box"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var wrap = document.getElementById("wrap");
+			var box = document.getElementById("box");
+			var left = box.offsetLeft;
+			var oTop = box.offsetTop;
+			var judgeLeft = true;
+			var judgeTop = true;
+			var timer = setInterval(function(){
+				if (judgeLeft) {
+					left++;
+					
+				} else{
+					left--;
+				}
+				if (left >= wrap.offsetWidth - box.offsetWidth) {
+					judgeLeft = false;
+				} else if(left <= 0){
+					judgeLeft = true;
+				}
+				
+				if (judgeTop) {
+					oTop++;
+				} else{
+					oTop--;
+				}
+				if (oTop >= wrap.offsetHeight - box.offsetHeight) {
+					judgeTop = false;
+				} else if(oTop <= 0){
+					judgeTop = true;
+				}
+				
+				
+				box.style.left = left + "px";
+				box.style.top = oTop + "px";
+			},5);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="800" height="300"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		
+		context.beginPath();
+		//设置文字
+		var text = "Hello World!";
+		context.font = "italic 50px serif";
+		
+		//渐变
+		var gradient = context.createLinearGradient(100,0,400,0);
+		gradient.addColorStop("0","blue");
+		gradient.addColorStop("0.5","green");
+		gradient.addColorStop("1","red");
+		
+		//设置风格
+		context.strokeStyle = gradient;
+		context.strokeText(text,100,100);
+		context.closePath();
+	</script>
+</html>

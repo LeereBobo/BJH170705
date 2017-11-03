@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//以什么开头
+			//^:
+//			var re = /^(http|ftp)/ig;
+//			var str = "http://www";
+//			var n = re.test(str);
+//			console.log(n);
+//			
+//			var reg = /h/g;
+//			var str ="helloh";
+//			console.log(reg.test(str));
+//			console.log(reg.test(str));
+			//test(),exec()多次查询应去掉g,否则会接连查询，影响返回值
+			
+			
+			//以什么结尾
+			//$:
+//			var reg = /h$/g;
+//			var str ="helloh";
+//			var value = reg.test(str)
+//			console.log(value);
+			
+			var reg = /^(http).{6}(com)$/ig;
+			var str = "http://errcom";
+			console.log(reg.test(str));
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

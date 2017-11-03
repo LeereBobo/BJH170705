@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>yidong</title>
+		<style>
+			#wrap{
+				width:100px;
+				height:100px;
+				background: pink;
+				position:absolute;
+				top:0;
+				left:0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap"></div>
+	</body>
+	<script>
+		// 移动函数的封装
+		function move (obj) {
+			var judge = true;
+			obj.name.onclick = function () {
+				if(judge){
+					judge = false;
+					obj.timer = setInterval(function() {
+						if(obj.dir == "left"){//判断是否为横向运动
+							var offa = "offsetLeft";
+							pand(obj,offa);
+						}
+						if(obj.dir == "top"){//判断是否为纵向运动
+							var offa = "offsetTop"; 
+							pand(obj,offa);
+						}
+					},obj.pertime)					
+				}
+			}
+		}
+		//限定条件判断，在move函数中调用
+		function pand (obj,offa) {
+			if(obj.init < obj.end){//初始位置和结束位置的大小，判断运动方向
+				obj.init += obj.speed;
+				obj.name.style[obj.dir] = obj.init + "px";
+				if(obj.name.offa > obj.end){
+					obj.name.style[obj.dir] = obj.end + 'px';
+					clearInterval(obj.timer);
+				}									
+			}else{
+				obj.init -= obj.speed;
+				obj.name.style[obj.dir] = obj.init + "px";
+				if(obj.name.offa < obj.end){
+					obj.name.style[obj.dir] = obj.end + 'px';
+					clearInterval(obj.timer);
+				}
+			}
+		}
+		// 构造函数创建一个对象，用来传入自己需要的值
+		function Run (biaoqian,init,speed,end,dir,pertime) {
+			this.name = document.querySelector(biaoqian);
+			this.init = init;
+			this.speed = speed;
+			this.end = end;
+			this.dir = dir;
+			this.pertime = pertime;
+		}
+		// 调用构造函数，传入实参
+		var myobj = new Run("#wrap",100,1,500,"top",20);
+		// 调用move函数开启标签的移动
+		move(myobj);
+	</script>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="请输入账号" id="num">
+<input type="password" placeholder="请输入密码" id="psd">
+<input type="submit" id="btn" placeholder="注册">
+<input type="button" placeholder="登录">
+
+<script>
+    /*3.创建一个注册界面，点击注册，将数据存储到cookie中，
+        并且进入登录界面，将账号和密码输入，
+        和cookie中的内容进行判断是否登录成功*/
+    var num = document.getElementById("num");
+    var passwords = document.getElementById("psd");
+    var btn = document.getElementById("btn");
+    var btn1 = document.getElementById("btn1");
+
+    function setCookie(cname,cvalue,exdays){
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + ";" + expires;
+    }
+
+    function getCookie(cname){
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+        }
+        return "";
+    }
+
+
+
+    btn.onclick = function(){
+        var nums = num.value;
+        var passwordV = passwords.value;
+
+        setCookie(nums,passwordV,100);
+        console.log(document.cookie);
+    }
+
+    btn1.onclick = function(){
+        var user = getCookie(nums);
+        var pas = getCookie(passwordV);
+        if(user == nums && pas == ){
+        
+        }
+        
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

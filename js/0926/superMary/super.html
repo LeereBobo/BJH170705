@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+	</head>
+
+	<body>
+		<div id="wrap">
+
+			<div class="content">
+				<div class="hero"></div>
+			</div>
+
+			<div class="road">
+
+			</div>
+		</div>
+
+	</body>
+
+	<script src="js/hero.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		var myHero = new Hero({
+			selector: ".hero",
+			moveFn: function() {
+				//每次移动调用该函数
+				judgeBorder(this.element, document.querySelector(".content"));
+			}
+		})
+		pressKey();
+
+		function pressKey() {
+			window.onkeydown = function(ev) {
+				var e = ev || window.event;
+				
+				switch (e.keyCode) {
+					case 65: //A:左
+						myHero.direction = "left";
+						myHero.move();
+						break;
+					case 68: //D:右
+						myHero.direction = "right";
+						myHero.move();
+						break;
+					case 32: //空格
+						myHero.jump();
+						break;
+					default:
+						break;
+				}
+				return false;
+			}
+			window.onkeyup = function(ev) {
+				var e = ev || window.event;
+				switch (e.keyCode) {
+					case 65:
+					case 68:
+						myHero.stop();
+						break;
+					default:
+						break;
+				}
+			}
+		}
+	</script>
+
+</html>

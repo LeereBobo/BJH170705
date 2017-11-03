@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+		//常用的创建对象的方法
+//		var obj = {
+//			name:"hello",
+//			arr:[],
+//			fff:function(){
+//				console.log(this);
+//			}
+//		};
+//		
+//		obj.mmm = ""
+//		obj.fff();
+
+		//构造函数创建对象
+		//名称首字母大写
+		function People(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			this.move = function(){
+				
+			}
+		}
+		var  p = new People("张三",18,"男");//调用上面的函数People
+//		console.log(p.name);//张三
+		p.move();
+//		console.log(p);
+		
+		var  p1 = new People("李四",45,"女");
+//		p1.name = "李四";
+//		p1.age = 23;
+//		console.log(p1);
+		
+		function Car(name,kind,code,price){
+			this.name = name;
+			this.kind = kind;
+			this.code = code;
+			this.price = price;
+		}
+		var car1 = new Car("福特","轿车","234","40");
+		var car2 = new Car("本田","SUV","666","60");
+		var car3 = new Car("拖拉机","农用","888","1");
+//		console.log(car1);
+//		console.log(car2);
+//		console.log(car3);
+		
+		
+		
+
+		
+		
+	</script>
+</html>

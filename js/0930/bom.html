@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				margin-bottom: 20px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="btn">open</div>
+		<div id="move">move</div>
+		<div id="size">size</div>
+	</body>
+	
+	<script>
+		var btn = document.getElementById("btn");
+		var move = document.getElementById("move");
+		var size = document.getElementById("size");
+		btn.onclick = function(){
+			mynewWindow = window.open("http://www.baidu.com","","width=200,height=200");
+			mynewWindow.document.write("hello");
+//			window.close();
+//			window.moveTo(100,100);
+		}
+		
+		move.onclick = function(){
+			mynewWindow.moveTo(100,200);
+		}
+		size.onclick = function(){
+			mynewWindow.resizeTo(500,500);
+		}
+		
+	</script>
+</html>

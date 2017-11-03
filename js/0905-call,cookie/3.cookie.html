@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function setCookie(cname,cvalue,exdays)
+    {
+        var d = new Date();
+//        console.log(d);
+
+        d.setTime(d.getTime()+(exdays*24*60*60*1000));
+//          console.log(d.setTime());
+//          console.log(d.getTime());
+//        console.log(d.setTime(d.getTime()+(exdays*24*60*60*1000)));
+        
+        var expires = "expires="+d.toGMTString();
+//        console.log(expires);
+        
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+//        console.log(document.cookie);
+    }
+
+
+    /*function setCookie(cname,cvalue,exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + ";" + expires;
+    }*/
+    /*function setCookie(cname,cvalue,exdays){
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires=" + d.thGMTString();
+        document.cookie = cname + "=" + cvalue + ";" + expires;
+    }
+*/
+
+    setCookie(1,2,100);
+
+
+
+
+
+
+
+
+
+    //cname:将要存储的cookie的名称
+    //cvalue:名称对应的值
+    //exdays:cookie过期时间，天
+
+    function getCookie(cname)
+    {
+        var name = cname + "=";
+//        console.log(name + "🍎");
+
+        var ca = document.cookie.split(';');
+//        console.log(ca);
+
+        for(var i=0; i<ca.length; i++)
+        {
+            var c = ca[i].trim();
+//            console.log(c + "🍌");
+
+            if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+        }
+        return "";
+    }
+
+    setCookie("瓜瓜","🐽","100");
+
+    getCookie("瓜瓜");
+
+    console.log(document.cookie);
+
+
+    //cookie存取
+
+    "key=值;expires"
+    document.cookie = "";
+    var a = document.cookie;
+    //cookie取值不打印过期值
+
+
+    /*http://www.baidu.com/index.html
+    http-网络传输协议 https,ftp,svn
+    www.baidu.com -- 域名
+    index.html -- 文件名
+    存储的时候，cookie--域名必须一致才能取出*/
+
+
+   /* 检测 cookie 值的函数
+      最后，我们可以创建一个检测 cookie 是否创建的函数。
+      如果设置了 cookie，将显示一个问候信息。
+      如果没有设置 cookie，将会显示一个弹窗用于询问访问者的名字，
+      并调用 setCookie 函数将访问者的名字存储 365 天：
+function checkCookie()
+{
+    var username=getCookie("username");
+    if (username!="")
+    {
+        alert("Welcome again " + username);
+    }
+    else
+    {
+        username = prompt("Please enter your name:","");
+        if (username!="" && username!=null)
+        {
+            setCookie("username",username,365);
+        }
+    }
+}*/
+
+</script>
+
+</body>
+</html>

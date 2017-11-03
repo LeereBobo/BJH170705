@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="ip" placeholder="请输入ip"/>
+		<input type="text" id="qq" placeholder="请输入qq"/>
+		<input type="text" id="email" placeholder="请输入email" />
+		<button id="btn">确认</button>
+	
+		
+		<script>
+			var ip = document.getElementById("ip");
+			var qq = document.getElementById("qq");
+			var email = document.getElementById("email");
+			var btn = document.getElementById("btn");
+			
+			//1.Ip地址
+			//要求：取值范围[0-255],之间加.
+			var re1 = /^(((0\d{2})|(1\d{2})|(2[012345]{2}))\.((0\d{2})|(1\d{2})|(2[012345]{2}))\.((0\d{2})|(1\d{2})|(2[012345]{2}))\.((0\d{2})|(1\d{2})|(2[012345]{2})))|(\d{2})\.(\d{2})\.(\d{2})\.(\d{2})|(\d)\.(\d)\.(\d)\.(\d)$/ig;
+			
+			//2.QQ号
+			//要求：1-9开头，最少5位，最多10位
+			var re2 = /^[1-9]\d{4,9}$/ig;
+			
+			//3.邮箱
+			//要求：数字字母开头，多个数字字母或下划线或-，@，数字字母，.,2-4个字母
+			var re3 = /^(\d|[a-z]|[A-Z])(\w|-)+@(\d|[a-z]|[A-Z])\.[a-z]|[A-Z]{2,4}$/ig;
+			
+			
+			function focus(obj,re_obj){
+				obj.onblur = function(){
+					var theValue = this.value;
+					var n = re_obj.test(theValue);
+					if (n) {
+						this.innerHTML = theValue;
+						console.log("输入正确啦");
+					} else{
+						this.value = "";
+						this.placeholder = "格式不符,请重新输入";
+			
+					}		
+				}
+			}
+			focus(ip,re1);
+			focus(qq,re2);
+			focus(email,re3);
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

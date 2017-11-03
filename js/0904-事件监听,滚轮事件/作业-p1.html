@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 300px;
+            height: 500px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+    var wrap = document.querySelector("#wrap");
+
+    var a = window.navigator.userAgent.indexOf("firefox") != -1 ? "DOMMouseScroll" : "mousewheel";
+
+
+    mouseWheel(wrap,a,function(){
+        wrap.style.backgroundColor = "lightblue";
+    },function(){
+        wrap.style.backgroundColor = "lightpink";
+    });
+
+
+
+    function mouseWheel(obj,action,fn1,fn2){
+
+        obj.addEventListener(action,function(ev){
+
+            var e = ev || window.event;
+
+            if(e.wheelDelta){
+                if(e.wheelDelta > 0){
+                    if(fn1){
+                        fn1();
+                    }
+                }else{
+                    if(fn2){
+                        fn2();
+                    }
+                }
+            }else{
+                if(e.detail > 0){
+                    if(fn2){
+                        fn2();
+                    }
+                }else{
+                    if(fn1){
+                        fn1();
+                    }
+                }
+            }
+        })
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				width: 600px;
+				height: 400px;
+				border: 1px solid black;
+			}
+			
+			.change {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<div class="name">名字</div>
+			<div class="tel">电话</div>
+		</div>
+		<div class="change">
+			<input type="text" id="name" />
+			<input type="text" id="tel" />
+			<input type="button" name="" id="sure" value="确认" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		var wrap = document.getElementById("wrap");
+		var change = document.querySelector(".change");
+		var sure = document.querySelector("#sure");
+		wrap.onclick = function() {
+			wrap.name = document.querySelector(".name").innerHTML;
+			wrap.tel = document.querySelector(".tel").innerHTML;
+			this.style.display = "none";
+			change.style.display = "block";
+			var nx = document.querySelector("#name");
+			nx.value = this.name;
+			var tx = document.querySelector("#tel");
+			tx.value = this.tel;
+			sure.a = this;
+			sure.onclick = function() {
+				var mk = this.a.querySelector('.name');
+				var mi = this.a.querySelector('.tel');
+				var name = document.querySelector('#name');
+				var tel = document.querySelector('#tel');
+				mk.innerHTML = name.value;
+				mi.innerHTML = tel.value;
+				wrap.style.display = "block";
+				change.style.display = "none";
+			}
+		}
+	</script>
+
+</html>

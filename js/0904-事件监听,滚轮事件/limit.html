@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+
+ var wrap = document.getElementById("wrap");
+
+ function add(wrap,action,fn){
+     if(wrap.attachEvent){
+        wrap.attachEvent("on" + action,fn);
+     }else{
+        wrap.addEventListener(action,fn);
+     }
+ }
+
+ function a(){
+     console.log("123");
+ }
+add(wrap,"click",a);
+
+
+ function remove(wrap,action,fn){
+     if(wrap.attachEvent){
+        wrap.detachEvent("on" + action,fn);
+     }else{
+      wrap.removeEventListener(action,fn);
+     }
+ }
+
+ remove(wrap,"click",a);
+
+</script>
+
+</body>
+</html>

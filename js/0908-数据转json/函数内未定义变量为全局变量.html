@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .all {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .lis {
+            width: 50px;
+            height: 50px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    function create(name,father,classname) {
+        var w = document.createElement(name);
+        father.appendChild(w);
+        w.className = classname;
+        return w;
+    }
+
+    function aaa(){
+        var all = create("div",document.body,"all");
+        return all;
+    }
+
+    var c = aaa();
+
+    function bbb(a){
+        var lis = create("div",a,"lis");
+    }
+
+
+    bbb(c);
+</script>
+</body>
+</html>

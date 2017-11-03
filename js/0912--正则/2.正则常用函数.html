@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var reg = new RegExp("M","i");
+			var str = "hemllom";
+//			console.log(reg);
+			
+//			//正则函数一：test();-->判断真假，看是否符合
+//			var value = reg.test(str);
+//			console.log(value);
+
+			//正则函数二：exec();-->是否存在
+			var value = reg.exec(str);
+			var value1 = reg.exec(str);
+			console.log(value1);
+			console.log(value.index); //下标
+//			console.log(value[0]);
+			console.log(value.input);
+			
+		</script>
+		
+	</body>
+</html>

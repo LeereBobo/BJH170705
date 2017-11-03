@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="500" height="500"></canvas>
+	</body>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		var deg = Math.PI / 180;
+		//		a.beginPath();
+		//		a.moveTo(150, 100); //起始点即为圆心
+		//		a.arc(150, 100, 50, 0 * deg, 270 * deg);
+		//		a.fillStyle = "pink";
+		//		a.stroke();
+		//		a.fill();
+		//		a.closePath();
+		//		
+		//		a.beginPath();
+		//		a.moveTo(150, 100);
+		//		a.arc(150, 100, 50, 270 * deg, 300 * deg);
+		//		a.fillStyle = "lightblue";
+		//		a.stroke();
+		//		a.fill();
+		//		a.closePath();
+		//函数
+				pie({
+					r_x:150,
+					r_y:100,
+					r:50,
+					start:270,
+					end:300,
+					a:context,
+					color:"lightblue"
+				})
+		
+				function pie(obj) {
+					var deg = Math.PI / 180;
+					obj.a.beginPath();
+					obj.a.moveTo(obj.r_x, obj.r_y);
+					obj.a.arc(obj.r_x, obj.r_y, obj.r, obj.start* deg, obj.end* deg);
+					obj.a.fillStyle = obj.color;
+					obj.a.stroke();
+					obj.a.fill();
+					obj.a.closePath();
+				}
+		//构造函数
+//		function Canvas(data) {
+//			this.obj = data;
+//			var deg = Math.PI / 180;
+//			this.begin = function() {
+//				this.obj.context.beginPath();
+//				obj.a.beginPath();
+//				obj.a.moveTo(obj.r_x, obj.r_y);
+//				obj.a.arc(obj.r_x, obj.r_y, obj.r, obj.start * deg, obj.end * deg);
+//				obj.a.fillStyle = "lightblue";
+//				obj.a.stroke();
+//				obj.a.fill();
+//				obj.a.closePath();
+//			}
+//		}
+	</script>
+
+</html>

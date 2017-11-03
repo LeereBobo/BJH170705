@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+		
+		function People(name,age,sex){
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+			console.log(this);//-->s
+		}
+		
+		function Student(name,age,sex,score){
+//			this.name = name;
+//			this.age = age;
+//			this.sex = sex;
+			this.score = score;
+			People.call(this,name,age,sex);//student继承于People
+			console.log(this);//-->s
+		}
+		
+		var s = new Student("aaa","男",18,99);
+//		console.log(s);
+
+		function CollegeStudent(name,age,sex,score,hobby){
+			this.hobby = hobby;
+			Student.call(this,name,age,sex,score);
+		}
+		
+		var m = new CollegeStudent("艾林","女",15,23,"hobby");
+		console.log(m);
+		
+		//instanceof:用来判断对象变量是哪个构造函数构造出来的
+		//返回值为布尔值,判断正确为true
+		var value = m instanceof CollegeStudent;
+		var value = m instanceof Object;//返回为true，Object为最根本
+		console.log(value);
+		
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrap {
+            width: 250px;
+            height: 400px;
+            border:2px solid lightgrey;
+        }
+
+        .imgs {
+            width: 250px;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        /*.price {
+            color: red;
+            font
+        }*/
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <!--<div class="wrap">-->
+        <!--<img src="" alt="">-->
+
+        <!--<div class="part2">-->
+            <!--<span class="price float-left"></span>-->
+            <!--<span class="number float-left">人付款</span>-->
+        <!--</div>-->
+
+        <!--<div class="part3"></div>-->
+        <!--<div class="part4">-->
+            <!--<span class="shop float-left"></span>-->
+            <!--<span class="address float-left"></span>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+<script>
+
+    var str = '[{"img":"1.jpg"},{"price":"260.10"},{"num":18},{"title":"2017夏季新款连衣裙"},{"shop":"seven"},{"address":"广东"}]';
+
+    function create(name,father,className1){
+        var w = document.createElement(name);
+        father.appendChild(w);
+        w.className = className1;
+        return w;
+
+    }
+
+//    create("div",document.body,"wrap");
+
+    var obj = JSON.parse(str);
+    console.log(obj);
+    
+    for(var i = 0; i < obj.length; i++){
+        var a = obj[i];
+        createMy(a);
+    }
+
+    function createMy(myObj){
+        var all = create("div",document.body,"wrap");
+        var myImg = create("img",all,"imgs");
+        myImg.src = myObj.img;
+
+//        var partSec = create("div",all,"all");
+//
+//        var span1 = create("span",partSec,"float-left");
+//        span1.innerHTML = myObj.price;
+
+//        var span2 = create("span",partSec,"float-left");
+//        span2.innerHTML = myObj.num;
+//
+//        var partThi = create("div",wrap);
+//        partThi.innerHTML = myObj.title;
+//
+//        var partFou = create("div",wrap);
+//
+//        var span3 = create("span",partFou,"float-left");
+//        span3.innerHTML = myObj.shop;
+//
+//        var span4 = create("span",partFou,"float-left");
+//        span4.innerHTML = myObj.addre;
+
+
+
+
+
+
+
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

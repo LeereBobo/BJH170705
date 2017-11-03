@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.attrs{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="attrs">
+			
+		</div>
+		
+	</body>
+	
+	<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+//		$(".attrs").click(function(){
+//			console.log(this);
+//			$(this).css({
+//				background:"green"
+//			})
+//		})
+		
+		
+		//2.事件对象
+//		$(".attrs").on("click",function(ev){
+//			console.log(ev);
+//		})
+		
+		//填参
+		var obj = {name:"张三"};
+		$(".attrs").click(obj,function(ev){
+			console.log(ev.data.name);
+		})
+
+		//3.给jQuery添加额外属性
+//		$("")---相当于创建了一个新的对象
+//		var a = $(".attrs");
+//		a.mmm = 10;
+//		console.log(a.mmm);
+
+//		var arr = $(".attrs");
+//		for (var i = 0; i < arr.length; i++) {
+//			var m = arr[i];
+//			m.index = i;
+//			$(m).click(function(){
+//				console.log(this.index)
+//			})
+//		}
+
+		$(".attrs").before("<p>uirfiuhfhfjdgjhgv</p>")
+//		$("<span>ui</span>").appendTo(".attrs")
+		$(".attrs").attr("fsd","wer");
+		$(".attrs").html("cdscdsc");
+		console.log($(".attrs").html());
+		
+	</script>
+</html>

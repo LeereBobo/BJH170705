@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    // 通过ajax获得php中的json数据
+    
+    myAjax("./1.first.php",function (value) {
+         var obj = JSON.parse(value);
+         
+    })
+    function myAjax(url,fn) {
+    		// 1.创建ajax
+        var m = new XMLHttpRequest();
+        // 2.配置请求路径和请求方式(get和post)
+        m.open("get",url);
+        // 3.发送请求
+        m.send();
+        // 4.接收数据
+        m.onreadystatechange = function () {
+            // 网络请求成功并返回数据
+            if(this.readyState == 4 && this.status == 200) {
+                var str = this.responseText;
+                fn(str);
+            }
+        }
+    }
+
+
+
+
+
+
+</script>
+</html>

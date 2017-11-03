@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#swiper1 {
+				width: 600px;
+				height: 300px;
+				background-color: pink;
+			}
+			
+			#swiper2 {
+				width: 600px;
+				height: 100px;
+				background-color: lightblue;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="swiper-3.4.2.min.css" />
+	</head>
+
+	<body>
+		<div class="swiper-container" id="swiper1">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">slid1</div>
+				<div class="swiper-slide">slid2</div>
+				<div class="swiper-slide">slid3</div>
+			</div>
+		</div>
+
+		<div class="swiper-container" id="swiper2">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">slid1</div>
+				<div class="swiper-slide">slid2</div>
+				<div class="swiper-slide">slid3</div>
+			</div>
+		</div>
+
+		<script src="swiper-3.4.2.min.js"></script>
+		<script type="text/javascript">
+			//不循环
+//			var mySwiper1 = new Swiper("#swiper1", {
+//				onSlideChangeEnd:function(bbb){
+//					console.log(bbb.realIndex);
+//					mySwiper2.slideTo(bbb.realIndex,0,false)
+//				}
+//				
+//			})
+//			var mySwiper2 = new Swiper("#swiper2", {
+//				onSlideChangeEnd:function(mmm){
+//					mySwiper1.slideTo(mmm.realIndex,1000,false)
+//				}
+//				
+//			})
+			//循环改变activeIndex，不循环改变realIndex
+			var mySwiper1 = new Swiper("#swiper1", {
+				loop:true,
+				
+			})
+			var mySwiper2 = new Swiper("#swiper2", {
+				loop:true,
+				slidesPerView:3,
+			})
+			mySwiper1.on("slideChangeEnd",function(mmm){
+				mySwiper2.slideTo(mmm.realIndex,1000,false);
+//				console.log(mmm.activeIndex + "a");
+				//修改外框
+				mySwiper2.slides[mmm.realIndex].style.border = "1px solid red";
+			})
+			
+			mySwiper2.on("slideChangeEnd",function(bbb){
+				mySwiper1.slideTo(bbb.realIndex,1000,false);
+				
+				//修改外框
+				mySwiper2.slides[bbb.realIndex].style.border = "1px solid red";
+			})
+			
+			
+			
+		</script>
+	</body>
+
+</html>

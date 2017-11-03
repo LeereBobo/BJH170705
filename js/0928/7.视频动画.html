@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片像素</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <video id="video1" style="display:none;" src="HTML5的前世今生.mp4" autoplay>
+
+    </video>
+</body>
+<script type="text/javascript">
+    var canvas = document.querySelector("#canvas");
+    var v = document.querySelector("#video1");
+    var ctx = canvas.getContext("2d");
+    function aaa() {
+        if(!v.ended) {
+            // 在canvas上绘制图片
+            ctx.drawImage(v,0,0,canvas.width,canvas.height);
+            window.requestAnimationFrame(aaa);
+
+        }
+    }
+    // 视频可以播放的时候会自动调用这个函数
+    v.oncanplay = function () {
+        window.requestAnimationFrame(aaa);
+    }
+
+</script>
+</html>

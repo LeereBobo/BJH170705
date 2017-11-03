@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片像素</title>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+</body>
+<script type="text/javascript">
+    var canvas = document.querySelector("#canvas");
+    // var ctx = canvas.getContext("2d");
+    // function drawImage() {
+    //     var img = new Image();
+    //     img.src = timg.jpeg;
+    //     img.onload = function () {
+    //         ctx.restore();
+    //         ctx.beginPath();
+    //         ctx.drawImage(img,0,0,canvas.width,canvas.height);
+    //         ctx.closePath();
+    //         ctx.save();
+    //     }
+    // }
+
+    // var canvas = initCanvas("canvas");
+	var context = canvas.getContext('2d');
+
+
+	context.fillStyle = "red";
+	//存储绘制之前的状态
+	context.save();
+
+	context.fillStyle = "blue";
+	//绘制
+	context.fillRect(100,100,100,100);
+	var i = 200;
+	canvas.onclick = function(){
+		//获取之前的画布状态
+		context.restore();
+		context.save();
+		context.fillRect(i++,i++,200,200);
+	}
+
+    var url = canvas.toDataURL();
+    console.log(url);
+
+</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//量词规则一：+ 
+			//+修饰与它前面紧挨的字符(有括号为整体){1，}
+//			var re = /(ih)+/gi;   
+//			var str = "nihihihhaoh";
+//			var n = str.replace(re,"M");
+//			console.log(n);
+			
+			//量词规则二：.
+			//代表任意字符
+//			var re = /mh.n/ig;
+//			var str = "hello";
+//			var n = str.replace(re,"y");
+//			console.log(n);
+//
+//			var reg = /h.+/ig;
+//			var str = "hello";
+//			var n = str.replace(reg,"M");
+//			console.log(n);//M
+			
+			//量词规则三：*
+			//代表前面的字符存在0个或多个,自身两个，其他一个
+//			var re = /e*/ig;
+//			var str = "hello";
+//			var n = str.replace(re,"K");
+//			console.log(n);//KhKKlKlKoK
+			
+			//量词规则四：？
+			//代表0个或者一个
+//			var re = /e?/ig;
+//			var str = "heeelleo";
+//			var n = str.replace(re,"K");
+//			console.log(n);//KhKKlKlKoK
+			
+			//量词规则五：{}
+			//长度范围
+			//{1}:长度必须为里面的数字
+			//{1,4}:最少一个，最多四个
+			//{2，}:最少两个，最多n个
+			var re = /l{2,}/ig;
+			var str = "helllllolll";
+			var n = str.replace(re,"K");
+			console.log(n);//heKo
+			
+			//量词总结：
+			//修饰前面字符的个数，可以代表前面字符重复了多少次
+			//量词有：+,*,?,{}
+			
+			
+		</script>
+	</body>
+</html>

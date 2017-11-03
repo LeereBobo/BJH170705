@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+    var oWrap = document.getElementById("wrap");
+
+    function add(obj,theEvent,fn){
+        if(obj.attachEvent){
+            obj.attachEvent("on" + theEvent,fn,false);
+        }else{
+            obj.addEventListener(theEvent,fn,false);
+        }
+    }
+
+
+    function con(){
+        console.log("123");
+    }
+
+    add(oWrap,"click",con);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 700px;
+            height: 700px;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+    var wrap = document.getElementById("wrap");
+    wrap.onmousewheel = function (ev) {
+        var ev = ev || window.event;
+        console.log(ev);
+
+         /*if(ev.wheelDelta > 0){
+             console.log(1);
+         }else if(ev.wheelDelta < 0){
+             console.log(2);
+         }*/  //上正下负
+
+        var v = wheelF(ev);
+        if (v == true) {
+            this.style.backgroundColor = "red";
+        } else {
+            this.style.backgroundColor = "green";
+        }
+
+    }
+
+
+    function wheelF(obj) {
+        if (obj.wheelDelta > 0) {
+            return true;
+        } else if (obj.wheelDelta < 0) {
+            return false;
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

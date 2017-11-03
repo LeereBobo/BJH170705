@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="page.css"/>
+	</head>
+	<body>
+		<div id="wrap"></div>
+		<ul class="page" id="pageBtn"></ul>
+		
+	</body>
+	
+	<script src="page.js"></script>
+	<script src="datalist-mail.js"></script>
+	<script src="jquery.min.js"></script>
+	<script>
+		var str = '[{"name":"第1条数据"},{"name":"第2条数据"},{"name":"第3条数据"},{"name":"第4条数据"},{"name":"第5条数据"},{"name":"第6条数据"},{"name":"第7条数据"},{"name":"第8条数据"},{"name":"第9条数据"},{"name":"第10条数据"}]';
+		var arr = JSON.parse(str);
+//		console.log(arr);
+		
+		var options = {
+			"id":"pageBtn",//放置按钮
+			"data":arr,
+			"maxshowpageitem":3,//最多显示页码个数
+			"pagelistcount":4,//每页数据的个数
+			"callBack":function(arr){
+				$("#wrap").html("");
+				var cont = "";
+				for (var i = 0 ; i < arr.length; i++) {
+					cont+="<div>" + arr[i].name + "</div>";
+				}
+				$("#wrap").append(cont);
+			}
+		}
+	
+		page.init(arr.length,1,options);
+	
+	
+	
+	
+	</script>
+</html>

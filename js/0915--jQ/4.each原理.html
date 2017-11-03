@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//each原理
+			var arr = document.querySelectorAll(".first");
+			arr.setInner = function(fn) {
+				for (var i = 0; i < this.length; i++) {
+					var m = this[i];
+					if (fn) {
+						var r = fn.call(m, i);
+						if (r == true) {
+							continue;
+						} else {
+							break;
+						}
+					}
+				}
+			}
+			arr.setInner(function(i) {
+				console.log(this);
+				return true;
+			})
+		</script>
+	</body>
+</html>

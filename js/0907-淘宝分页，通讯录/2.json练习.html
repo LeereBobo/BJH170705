@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #wrap {
+            width: 620px;
+            background-color: black;
+            padding: 20px;
+        }
+
+
+        .first-class::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .first-class:hover .span1-class,
+        .first-class:hover .span2-class{
+            color: mediumblue;
+        }
+        
+        .span1-class,.span2-class{
+            float: left;
+            color: white;
+            font-size: 20px;
+
+        }
+
+        .span2-class{
+            list-style: none;
+            display: inline-block;
+            margin-left: 115px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+    </div>
+</body>
+
+<script>
+
+    var str = '[{"title":"8月21日更新日志:7.06游戏平衡性改动","date":"2017-08-21"},{"title":"8月21日更新日志:7.06游戏平衡性改动","date":"2017-08-21"},{"title":"8月21日更新日志:7.06游戏平衡性改动","date":"2017-08-21"},{"title":"8月21日更新日志:7.06游戏平衡性改动","date":"2017-08-21"},{"title":"8月21日更新日志:7.06游戏平衡性改动","date":"2017-08-21"},{"title":"8月21日更新日志:7.06游戏平衡性改动","date":"2017-08-21"},{"title":"8月21日更新日志:7.06游戏平衡性改动","date":"2017-08-21"},{"title":"8月21日更新日志:7.06游戏平衡性改动","date":"2017-08-21"}]';
+
+    var arr = JSON.parse(str);
+
+    function create(name,father,classname) {
+        var w = document.createElement(name);
+        father.appendChild(w);
+        w.className = classname;
+        return w;
+    }
+
+    function createAll(arr,i){
+        var wrap = document.getElementById("wrap");
+        var first = create("ul",wrap,"first-class");
+        var span1 = create("li",first,"span1-class");
+        span1.innerHTML = arr[i].title;
+        var span2 = create("li",first,"span2-class");
+        span2.innerHTML = arr[i].date;
+    }
+
+    for(var i = 0; i <arr.length; i++){
+        createAll(arr,i);
+    }
+
+
+
+
+
+</script>
+</html>

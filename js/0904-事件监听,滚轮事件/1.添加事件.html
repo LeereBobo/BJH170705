@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width:100px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+
+    <script>
+
+       //现代浏览器添加事件监听的写法
+//        var wrap = document.getElementById("wrap");
+//        wrap.onclick = function (){
+//            console.log("积极 i");
+//        }
+//
+//        wrap.addEventListener("click",function(){
+//            console.log("🐷");
+//            console.log(this);
+//
+//        },false);
+//
+//        function add(ev){
+//            var e = ev || window.event;
+//            console.log("123");
+//            console.log(this);
+//        }
+//
+//        wrap.addEventListener("click",add);
+////        wrap.addEventListener("click",add,false);
+//        wrap.removeEventListener("click",add);
+//
+//        /*
+//        * 1.false 可选值
+//        * 2.remove 必须是外部函数
+//        * */
+
+        //IE事件监听的方法
+
+       function myClick() {
+            console.log("🍑");
+       }
+        wrap.attachEvent("onclick",myClick);
+
+        wrap.detachEvent("onclick",myClick);
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+			#wrap {
+				width: 650px;
+				height: 40px;
+				border: 1px solid cyan;
+				display: flex;
+				justify-content: space-around;
+			}
+			
+			#wrap button {
+				height: 25px;
+				background: lightblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="wrap">
+			<button class="but1">直接跳转</button>
+			<button class="but2">返回上次浏览器界面</button>
+			<button class="but3">制定页面的跳转IE </button>
+			<button class="but4">指定自身页面的跳状</button>
+			<button class="but5">指定自身页面的跳状</button>
+		</div>
+		<iframe src="https://www.baidu.com/" width="500" height="500" frameborder="0"></iframe>
+	</body>
+	<script>
+		var but = document.querySelectorAll('button');
+		but[0].onclick = function() {
+			//当前页面地址
+			// console.log(window.location.href);
+			window.location.href = "https://www.baidu.com/";
+			window.location.href = '' + window.location.href;
+		}
+		//返回上次浏览界面
+		but[1].onclick = function() {
+			window.history.back(-1);
+		}
+		//制定页面的跳转（IE 对框架无效）
+		but[2].onclick = function() {
+			window.navigate('https://www.baidu.com/');
+		}
+		//指定自身页面的跳状（对框架无效）
+		but[3].onclick = function() {
+			window.location = "https://www.baidu.com/";
+		}
+		////指定自身页面的跳状（对框架有效）
+		but[4].onclick = function() {
+			top.location = "https://www.baidu.com/";
+		}
+	</script>
+
+</html>

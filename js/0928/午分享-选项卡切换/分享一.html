@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			ul li {
+				list-style: none;
+				width: 60px;
+				height: 30px;
+				border: 1px solid red;
+				text-align: center;
+			}
+			
+			#wrap div {
+				width: 400px;
+				height: 300px;
+				border: 1px solid red;
+				font-size: 30px;
+				display: none;
+			}
+			
+			.fill {
+				background-color: red;
+			}
+			
+			.filldiv {
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="" id="wrap">
+			<ul>
+				<li rel="t1" >A</li>
+				<li rel="t2">B</li>
+				<li rel="t3" class="selectActive">C</li> 
+				<!--class="selectActive"默认显示有这个类的-->
+				
+			</ul>
+			<div id="" rel="t1">
+				aaa
+			</div>
+			<div id="" rel="t2">
+				bbbb
+			</div>
+			<div id="" rel="t3">
+				ccccccc
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+	<script src="tabs.js"></script>
+	<script type="text/javascript">
+		//		var lis = document.getElementsByTagName("li");
+		//		var divs = document.getElementsByTagName("div");
+		//		for (var i = 0; i < lis.length; i++) {
+		//			lis[i].onclick = function() {
+		//				for (var j = 0; j < lis.length; j++) {
+		//					if (this == lis[j]) {
+		//						lis[j].className = "fill";
+		//						divs[j].className = "filldiv";
+		//					}else{
+		//						lis[j].className = "";
+		//						divs[j].className = "";
+		//					}
+		//					
+		//				}
+		//			}
+		//		}
+		
+		
+		tabs_takes.init("wrap");
+		
+		
+	</script>
+
+</html>

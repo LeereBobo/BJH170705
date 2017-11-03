@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>闭包</title>
+		<style type="text/css">
+			ul{background: gray;margin: 0 auto;text-align: center;margin-right: 10px;}
+			li{background: orangered;padding: 10px 30px;display: inline-block;margin-left: 10px;margin-bottom: 30px;border: 1px solid #fffff;}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	var aLi=document.getElementsByTagName('li');
+	
+//	(function aaa(zz){
+//		console.log(zz)
+//	}(123)
+//	for (i=0;i<aLi.length;i++){
+//		console.log(i)
+//		aLi[i].onclick=function(){
+//			console.log(i)
+//		}
+//	}
+	//在不点击相应的变量的之前不执行onclick后面的function；
+	//先执行5次循环给i++分别添加onclick但不执行后面的function，i最终变成了5；
+	//什么时候点都是5；点完再执行。
+	for (i=0;i<aLi.length;i++)
+	{
+		aLi[i].onclick=(function(index00)
+		{
+				console.log(1);
+				return function(){
+					console.log(index00);
+				}			
+		}(i))
+	}
+	//分析  自执行外层函数把I这个实参传进来代替所有形参； 返回值是一个函数确定了返回值是一个函数
+	//500年以后点击aLi，执行返回值里的函数；
+	//就是闭包：可以实现将值存储和起来，
+//	function init(){//变量作用域的特性是出了该变量的域失去作用，如何让变量的值保存起来；
+//		var age=20;
+//		function dispalyAge(){
+//			console.log(age);
+//		}
+//		dispalyAge();
+//	}
+//	init();
+//	function closure_func(){//使用闭包将变量持久化
+//		var age=20;
+//		function dislplayAge(){
+//			console.log(age++)
+//		}
+//		 return dislplayAge;
+//	}
+//
+//	var myfun=closure_func();
+//	myfun();//20
+//	myfun();//21
+//	myfun();//22
+
+//onclick事件的运行机制：在不点击相应的变量之前不执行onclick后面的function,function(){}就相当于没写;
+		//题目分析：先执行5次循环，i++,给aLi[i]分别添加onclick,单不执行后面的function,i最终变成了5，在100年以后，鼠标点击aLi,此时执行onlick后面的function.把function添加到onclick事件里（function相当于写在了for循环的外面）
+		//
+		
+//		for(var i=0;i<aLi.length;i++)
+//		{
+//			aLi[i].onclick=(function(index00)
+//			{
+////				console.log(index00);
+//				return function()
+//				{
+//					console.log(index00);
+//				};
+//			}(i))
+//		}
+	/*闭包的满足条件
+	 	一个函数嵌套另外一个函数，并被嵌套的函数访问看父级的变量
+	 	要将内部函数返回给父级函数
+	 	
+	 	*闭包的作用
+	 	* 1.防止变量名冲突，
+	 	* 2.变量持久化
+	 	* 3.闭包可以成为函数内部与外部的一个桥梁*/
+	function makeAdder(y){
+		return function(){
+			alert(y)
+		}
+	}
+	makeAdder(5);
+//	var adder5=makeAdder(10);
+//	adder5();
+</script>

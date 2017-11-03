@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div class="div1"></div>
+		<div class="div1"></div>
+
+		<script src="jquery.js.js"></script>
+		<script>
+			//1.jQuery中如果有多个标签，那么这个jQuery对象调用函数的时候
+			//相当于所有标签都在调用
+			//			var r = $(".div1");
+			//			console.log(r);
+			//			
+			//			
+			//			r.css({
+			//				width:"100px",
+			//				height:"100px",
+			//				background:"red",
+			//				margin:"5px"
+			//			})
+			//2.通过jQuery获得标签的方式，数组下标
+			var m = $(".div1");
+			var a = m[0];
+			console.log(a);
+			//3.创建标签的方式
+			var m = $("<div class=nihao>"); //创建
+			console.log(m);
+			$(".div1").append(m); //添加
+			var n = $(".div1")[0];
+			$(n).append(m);
+			
+			
+		</script>
+	</body>
+
+</html>

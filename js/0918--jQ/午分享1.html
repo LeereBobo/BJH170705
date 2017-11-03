@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#but,#ul {
+				width: 100px;
+				display: block;
+				margin: 20px;
+			}
+			#ul{
+				list-style: none;
+			}
+			
+			#ul li{
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="but" id="but" value="" />
+		<ul id="ul"></ul>
+	</body>
+	<script type="text/javascript">
+		var but = document.getElementById("but");
+		var ul = document.getElementById("ul");
+		
+		but.onclick = function(){
+			var li = document.createElement("li");
+			li.innerHTML = "我是li"+"<a>删除</a>";
+			ul.appendChild(li);
+			var a = li.getElementsByTagName("a");
+			a[0].onclick = function(){
+				ul.removeChild(li);
+			}
+		}
+	</script>
+</html>

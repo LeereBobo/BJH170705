@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas>
+	</body>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		var str = '[{"name":"1月","value":1000},{"name":"2月","value":2000},{"name":"3月","value":500},{"name":"4月","value":2800}]';
+		var myarr = JSON.parse(str);
+		var total = 0; //所有的value和
+		var singel = 0; //1deg所代表的value值
+		var value_deg = 0;
+
+		//设置圆心位置
+		var my_r_x = 300;
+		var my_r_y = 300;
+		var my_r = 100;
+		var my_start = 0;
+		var my_end = 0;
+		var my_color = ranColor();
+
+		angle(myarr);
+
+		function angle(arr) {
+			for(var i = 0; i < arr.length; i++) {
+				total += arr[i].value;
+			}
+			//			console.log(total);
+			singel = total / 360;
+			for(var i = 0; i < arr.length; i++) {
+				var my_color = ranColor();
+				value_deg = Math.round(arr[i].value / singel); //每个value值在饼状图中所占的度数
+								console.log(value_deg);
+				my_end += value_deg;
+				my_start = my_end - value_deg;
+								console.log(my_end);
+								console.log(my_start);
+				pie({
+					a: context,
+					r_x: my_r_x,
+					r_y: my_r_y,
+					r: my_r,
+					start: my_start,
+					end: my_end,
+					color: my_color
+
+				})
+
+			}
+
+		}
+
+		function pie(obj) {
+			var deg = Math.PI / 180;
+			obj.a.beginPath();
+			obj.a.moveTo(obj.r_x, obj.r_y);
+			obj.a.arc(obj.r_x, obj.r_y, obj.r, obj.start * deg, obj.end * deg);
+			obj.a.fillStyle = obj.color;
+			obj.a.stroke();
+			obj.a.fill();
+			obj.a.closePath();
+		}
+
+		function ran(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+
+		function ranColor() {
+			var r = ran(0, 255);
+			var g = ran(0, 255);
+			var b = ran(0, 255);
+			return "rgb(" + r + ", " + g + "," + b + ")";
+		}
+	</script>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>反色处理</title>
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="550" height="800"></canvas>
+	</body>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		
+		//1.绘制图片
+		var img = new Image();
+		img.src = "0.jpg";
+		img.onload = function() {
+			ctx.beginPath();
+			ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+
+			//获取数据
+			var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+			var piexls = imageData.data;
+
+			//遍历色素点
+			for (var i = 0; i < piexls.length; i+=4) {
+				//反色处理就是用 255 减去 r g b 现在的值
+				var r = 255 - piexls[i];
+				var g = 255 - piexls[i+1];
+				var b = 255 - piexls[i+2];
+				
+				//重新赋值
+				
+				piexls[i] = r;
+				piexls[i+1] = g;
+				piexls[i+2] = b;
+				
+			}
+			ctx.putImageData(imageData,100,100);
+			ctx.closePath();
+		}
+	</script>
+
+</html>

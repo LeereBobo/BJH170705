@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//规则一：| 或语法
+//			var reg = /h((hn)|(m)|(n))/g;
+//			var str = "hhnjkhmmhnn";
+//			var value = str.replace(reg,"M");
+//			console.log(value);
+//			
+//			var reg = /\d/g;
+//			var str = "hm345678";
+//			var value = str.replace(reg,"");
+//			console.log(value);
+			
+			//规则二：[] 或语法
+//			var reg = /[hmn]/g;//-->分别替换h,m,n,非整体
+//			var str = "hnemn";
+//			var value = str.replace(reg,"Z");
+//			console.log(value);
+			
+			var reg = /[a-zA-Z]/g;
+			var str = "hn5e3M5n45";
+			var value = str.replace(reg,"8");
+			console.log(value);
+			
+			//数字写法:[0-9]
+			//字母写法:[a-zA-Z]
+			//数字和字母写法:[0-9a-zA-Z]
+			//汉字写法:[\u4e00-\u9fa5]
+			
+
+			
+		</script>
+	</body>
+</html>

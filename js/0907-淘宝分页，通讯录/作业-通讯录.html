@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 300px;
+            /*background-color: lightgrey;*/
+            padding: 20px;
+            /*text-align: center;*/
+        }
+
+         .myLetter {
+             background-color: lightblue;
+             /*border:2px solid black;*/
+             margin-top: 25px;
+             padding:1px 5px;
+         }
+
+        .myMessage::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .myMessage{
+            background-color: ghostwhite;
+        }
+
+
+        .mySpan1 {
+            float: left;
+            padding-left: 10px;
+        }
+
+
+        .mySpan2 {
+            float: right;
+            padding-right: 10px;
+        }
+
+        .mySpan1,.mySpan2 {
+            font-size: 18px;
+            margin: 4px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="wrap"></div>
+
+<script>
+
+    var str = '[{"index":"A","peoples":[{"name":"艾林","tel": "18956324895"}]},{"index":"C","peoples":[{"name": "传永", "tel": "18956324895"}]},{"index": "G","peoples":[{"name": "郭晓霞","tel":"14956324895"},{"name":"郜浩","tel": "14956824895"}]},{"index": "L","peoples": [{"name": "李晓凤", "tel": "14956324895"}, {"name": "李梦月", "tel": "14956814895"}, {"name": "李晓芮", "tel": "14956414895"}]}, {"index": "M", "peoples": [{"name": "苗婕", "tel": "14956324815"}]}, {"index": "Q", "peoples": [{"name": "全莹", "tel": "14656324815"}]}, {"index": "S", "peoples": [{"name": "孙晓忱", "tel": "14956324625"}, {"name": "孙帅", "tel": "14926814895"}]}, {"index": "T", "peoples": [{"name": "田志东", "tel": "14656364815"}]}, {"index": "W", "peoples": [{"name": "王彦坤","tel": "14256324625"},{"name": "王浩亮","tel": "14326814895"},{"name": "王子豪", "tel": "14326814795"},{"name": "武超敏", "tel": "14326814795"}]},{"index": "X", "peoples": [{"name": "许飞", "tel": "14656364815"}]},{"index": "Y", "peoples":[{"name": "杨婷","tel": "14256324625"},{"name": "尹子涛","tel": "14326814895"},{"name": "游洲","tel": "14326814795"},{"name": "宇文彬杰", "tel": "14326814795"}]},{"index": "Z","peoples":[{"name": "张乐","tel": "14256324625"},{"name": "肇鹏", "tel": "14326814895"},{"name": "张然", "tel": "14326814795"},{"name": "赵帅", "tel": "14326814795"},{"name": "赵帅", "tel": "14326814795"},{"name": "赵双", "tel": "14326814795"},{"name": "张云", "tel": "14326814795"},{"name": "赵子筠", "tel": "14326814795"},{"name": "邹鑫鑫", "tel": "14326814795"}]}]';
+    var arr = JSON.parse(str);
+     
+
+    //元素创建函数
+    function create(name,father,classname) {
+        var w = document.createElement(name);
+        father.appendChild(w);
+        w.className = classname;
+        return w;
+    }
+
+
+    //创建全部标签
+    function createAll(obj,i){
+        var wrap = document.getElementById("wrap");
+
+        var letter = create("div",wrap,"myLetter");
+        letter.innerHTML = obj[i].index;
+//        console.log(obj[0]);
+
+
+
+    }
+
+    function createSpan(obj){
+        var wrap = document.getElementById("wrap");
+        var message = create("div",wrap,"myMessage");
+        var span1 = create("span",message,"mySpan1");
+        span1.innerHTML = obj.name;
+        var span2 = create("span",message,"mySpan2");
+        span2.innerHTML = obj.tel;
+
+//        console.log(message);
+    }
+
+
+    for(var i = 0; i < arr.length; i++){
+        createAll(arr,i);
+//        console.log(i);
+
+        var de = arr[i];
+        var de1 = arr[i].peoples;
+        console.log(de1);
+        console.log(de1.length);
+
+
+
+//        console.log(arr[2].length);
+
+        for(var j = 0; j < de1.length; j++){
+            var dd = de1[j];
+            createSpan(dd);
+//            console.log(dd);
+
+        }
+
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

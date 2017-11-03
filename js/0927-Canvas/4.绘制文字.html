@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas {
+				background-color: lightblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="canvas" width="300" height="300"></canvas>
+	</body>
+
+	<script type="text/javascript">
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		context.beginPath();
+		context.strokeStyle = "red";
+		//字体大小
+		context.font = "40px  YouYuan";
+		context.strokeText("内容", 200, 200); //x,y  放最后
+
+		context.closePath();
+//		font - 定义字体
+//		fillText(text, x, y) - 在 canvas 上绘制实心的文本
+//		strokeText(text, x, y) - 在 canvas 上绘制空心的文本
+	</script>
+
+</html>

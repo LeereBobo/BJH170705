@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap {
+            width: 700px;
+            height: 700px;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+<script>
+    var wrap = document.getElementById("wrap");
+
+    //判断运动方向
+    function judgeFire(m, upFn, downFn) {
+        if (m.detail < 0) {
+            if (downFn) {
+                downFn();
+
+            }
+        } else {
+            if (upFn) {
+                upFn();
+
+            }
+        }
+
+    }
+
+    function judge(m, upFn, downFn) {
+        if (m.wheelDelta > 0) {
+            if (downFn) {
+                downFn();
+            }
+        } else {
+            if (upFn) {
+                upFn();
+            }
+        }
+    }
+
+
+    //判断是否是火狐
+    function mouseWheel(obj, fn1, fn2) {
+
+        var ev = e || window.event;
+
+        if (ev.wheelDelta) {
+            //非火狐
+            obj.onmousewheel = judge;
+
+
+        } else {
+            //火狐
+            obj.addEventListener("DOMMouseScroll", function (ev) {
+                var ev = ev || window.event;
+                judgeFire(ev, fn1, fn2);
+
+            });
+
+        }
+
+    }
+
+    //改变样式
+
+    mouseWheel(wrap, function () {
+        wrap.style.backgroundColor = "lightblue";
+
+    }, function () {
+        wrap.style.backgroundColor = "lightpink";
+
+    })
+
+
+</script>
+</body>
+</html>

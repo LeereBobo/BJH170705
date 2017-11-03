@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<style>
+			canvas{
+			            border:1px solid black;
+			        }
+		</style>
+	</head>
+
+	<body>
+		<canvas width="500" height="500" id="myCanvas"></canvas>
+		<script>
+			var oCanvas = document.getElementById("myCanvas");
+			var ctx = oCanvas.getContext("2d");
+			//Math.PI  180度
+			//32度
+			// 1度 Math.PI / 180
+			// 32度 32 * Math.PI / 180
+			/*
+			 * 参数一:圆心x的坐标
+			 * 参数二:圆心Y的坐标
+			 * 参数三:是半径的长度
+			 * 参数四:开始的角度
+			 * 参数五:结束的角度
+			 * 参数六:可选  默认为false 顺时针 true 逆时针
+			 * */
+			//画弧
+			//    ctx.beginPath();
+			//    ctx.arc(100,100,100,0,Math.PI / 2,true);
+			//    ctx.stroke();
+			//画圆
+			ctx.beginPath();
+			ctx.arc(400, 400, 100, 0, Math.PI * 2, true);
+			ctx.fillStyle = "pink";
+			//    ctx.stroke();
+			ctx.closePath(); //关闭路径
+			ctx.fill();
+			//画扇形
+			ctx.beginPath();
+			//圆心位置
+			//    ctx.moveTo(200,200);
+			//    ctx.arc(200,200,50,0,Math.PI / 2);
+			//    ctx.closePath();
+			//    ctx.stroke();
+			//画一个固定角度的线
+			//  ctx.moveTo(200,200);
+			//  ctx.arc(200,200,50,Math.PI / 3,Math.PI / 3,false);
+			//  ctx.stroke();
+		</script>
+	</body>
+
+</html>
