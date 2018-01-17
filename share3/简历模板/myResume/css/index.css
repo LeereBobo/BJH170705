@@ -1,0 +1,14 @@
+#header {
+	background-color: #343a40;
+	color: white;
+}
+.position-bg {
+	background-color: #000;
+}
+#nav i {
+	font-size: 2em;
+}
+
+@media (min-width: 1199px) {
+  .click-item {
+    padding: 3em !important; } }
