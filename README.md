@@ -1,2 +1,5 @@
-# 这是JavaScript后期的课堂代码
-### 主要是json，ajax,页面切换等
+# 代码分享
+### 简历模板
+### canvas验证码
+### hover效果
+### jRate五星插件
