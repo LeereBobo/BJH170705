@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		.all {
+			width: 600px;
+			height: 400px;
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="all"></div>
+	<input type="text" value="这是一个弹幕">
+	<button>发送</button>
+</body>
+<script>
+	var all = document.querySelector('.all');
+	var button = document.querySelector("button");
+	var text = document.querySelector("input");
+
+	button.onclick = function(){
+		var p = document.createElement('p');
+		p.style.position = "absolute";
+		p.innerHTML = text.value;
+		p.style.width = 600+"px";
+		p.style.left = 600+"px";
+		p.style.color = "white";
+		p.style.top = Math.random()*400+"px";
+		all.appendChild(p);
+		var timer = setInterval(function(){
+			p.style.left = parseInt(p.style.left)-10+"px";
+			if (parseInt(p.style.left)+ 600<=0) {
+				all.removeChild(p);
+				clearInterval(timer);
+			}
+		},100);
+	}
+
+</script>
+</html>

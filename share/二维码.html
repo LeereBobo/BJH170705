@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style media="screen">
+		.qr{width: 400px;height: 400px;margin: 0 auto;}
+		.input{width: 300px}
+	</style>
+	<title>二维码</title>
+</head>
+<body>
+	<div class="qr"></div><!-- 因为二维码基本都是正方形的所以要写成正方形 -->
+	<input type="text" name="" value="http://www.sosuo.name" class="input">
+	<input type="button" name="" value="确定" class="btn">
+	<span class="span"></span>
+</body>
+</html>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://static.runoob.com/assets/qrcode/qrcode.min.js"></script>
+<script type="text/javascript">
+  //创建一个对象
+  var qrcode = new QRCode($(".qr")[0],{width:400,height:400});//参数(要放二维码的标签,{二维码的宽和高});
+  $(".btn").on("click",function () {
+  	makeCode();
+  })
+  window.onkeydown=function(ev){
+  	var e = ev || ev.event;
+  	if (e.keyCode==13) {
+  		makeCode();
+  	}
+  }
+  var mydate = new Date()
+  console.log(mydate.toLocaleString());
+  function makeCode() {
+  	if (!$(".input")[0].value) {
+  		console.log(1);
+  		$(".span").html("请输入正确的内容");
+  		return;
+  	}
+  	$(".span").html("");
+
+  	qrcode.makeCode($(".input")[0].value)
+  }
+  makeCode();
+</script>
