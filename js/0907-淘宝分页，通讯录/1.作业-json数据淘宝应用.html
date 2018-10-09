@@ -37,7 +37,7 @@
 
 
     //1.获得数据
-    var str = '[{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"},{"img":"1.jpg","title":"粉丝最爱的女装店"}]';
+    var str = '[{"img":"1.jpg","title":"粉丝最爱的女装店1"},{"img":"1.jpg","title":"粉丝最爱的女装店2"},{"img":"1.jpg","title":"粉丝最爱的女装店3"},{"img":"1.jpg","title":"粉丝最爱的女装店4"},{"img":"1.jpg","title":"粉丝最爱的女装店5"},{"img":"1.jpg","title":"粉丝最爱的女装店6"},{"img":"1.jpg","title":"粉丝最爱的女装店7"},{"img":"1.jpg","title":"粉丝最爱的女装店8"},{"img":"1.jpg","title":"粉丝最爱的女装店9"},{"img":"1.jpg","title":"粉丝最爱的女装店10"},{"img":"1.jpg","title":"粉丝最爱的女装店11"},{"img":"1.jpg","title":"粉丝最爱的女装店12"},{"img":"1.jpg","title":"粉丝最爱的女装店13"},{"img":"1.jpg","title":"粉丝最爱的女装店14"},{"img":"1.jpg","title":"粉丝最爱的女装店15"},{"img":"1.jpg","title":"粉丝最爱的女装店16"},{"img":"1.jpg","title":"粉丝最爱的女装店17"},{"img":"1.jpg","title":"粉丝最爱的女装店18"}]';
 
     //2.解析为数组
     var arr = JSON.parse(str);
@@ -62,25 +62,30 @@
 
             myPage.appendChild(btn);
             btn.innerHTML = i + 1;
+            // console.log(btn.innerHTML);
+            /*(function(i){
+                问题：for循环里创建button并添加点击事件，总执行最后一个？？？？
+            })(i)*/
+            
             btn.onclick = function(){
 
                 //点击添加对应按钮的数据到界面上
-
-                var cNum = Number(btn.innerHTML);//?
+                console.log(btn.innerHTML+"🐷");//问题所在，innerHTML一直为最后一个数值3，导致获取数据与页面不符
+                var cNum = Number(btn.innerHTML);//?把对象的值转为数字
                 var start = (cNum - 1) * perNum;
-                var end = cNum *perNum;
+                var end = cNum *perNum-1;
 
-                if(end > myArr.length){
+                /*if(end > myArr.length){
                     end = myArr.length;
                 }
-
-                for(var i = start; i < end; i++){
+*/
+                for(var j = start; j < end; j++){
                     //创建页面
                     var f = document.createElement("div");
                     content.appendChild(f);
 
                     //创建小标签
-                    var obj = myArr[i];
+                    var obj = myArr[j];
                     console.log(obj);
                     var myImg = document.createElement("img");
                     myImg.src = obj.img;
